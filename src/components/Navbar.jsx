@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { TrilogiconMark } from './TrilogiconMark'
@@ -10,9 +11,10 @@ export function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-zinc-800/90 bg-tril-black/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 md:px-8">
-        <a
-          href="#top"
+        <Link
+          to="/"
           className="group flex items-center gap-3 outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2 focus-visible:ring-offset-tril-black"
+          onClick={() => setOpen(false)}
         >
           <TrilogiconMark
             size={36}
@@ -22,17 +24,17 @@ export function Navbar() {
             {brand.name}
             <span className="ml-2 text-zinc-500">{brand.ticker}</span>
           </span>
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-8 md:flex" aria-label="Primary">
           {nav.links.map((link) => (
-            <a
+            <Link
               key={link.href}
-              href={link.href}
+              to={link.href}
               className="font-mono text-xs uppercase tracking-widest text-zinc-400 transition-colors hover:text-zinc-100"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -59,14 +61,14 @@ export function Navbar() {
           >
             <nav className="flex flex-col gap-1 px-5 py-4" aria-label="Mobile primary">
               {nav.links.map((link) => (
-                <a
+                <Link
                   key={link.href}
-                  href={link.href}
+                  to={link.href}
                   className="font-mono text-sm uppercase tracking-widest text-zinc-400 py-2 hover:text-zinc-100"
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
-                </a>
+                </Link>
               ))}
             </nav>
           </motion.div>

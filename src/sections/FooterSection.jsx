@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { TrilogiconMark } from '../components/TrilogiconMark'
 import { footer } from '../content/copy'
 
@@ -13,34 +14,31 @@ export function FooterSection() {
               <p className="mt-1 font-mono text-xs text-zinc-500">{footer.note}</p>
             </div>
           </div>
-          <nav
-            className="flex flex-wrap gap-x-8 gap-y-3"
-            aria-label="Footer"
-          >
-            {footer.links.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className={`font-mono text-xs uppercase tracking-widest transition-colors ${
-                  link.placeholder
-                    ? 'text-zinc-600'
-                    : 'text-zinc-500 hover:text-zinc-300'
-                }`}
-                {...(link.placeholder
-                  ? {
-                      'aria-disabled': true,
-                      onClick: (e) => e.preventDefault(),
-                    }
-                  : {})}
-              >
-                {link.label}
-                {link.placeholder && (
+          <nav className="flex flex-wrap gap-x-8 gap-y-3" aria-label="Footer">
+            {footer.links.map((link) =>
+              link.placeholder ? (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="font-mono text-xs uppercase tracking-widest text-zinc-600"
+                  aria-disabled
+                  onClick={(e) => e.preventDefault()}
+                >
+                  {link.label}
                   <span className="ml-1 text-[10px] normal-case tracking-normal text-zinc-700">
                     (soon)
                   </span>
-                )}
-              </a>
-            ))}
+                </a>
+              ) : (
+                <Link
+                  key={link.href}
+                  to={link.href}
+                  className="font-mono text-xs uppercase tracking-widest text-zinc-500 transition-colors hover:text-zinc-300"
+                >
+                  {link.label}
+                </Link>
+              ),
+            )}
           </nav>
         </div>
         <p className="mt-12 border-t border-zinc-900 pt-8 text-center text-xs text-zinc-600 md:text-left">

@@ -9,6 +9,12 @@ export const brand = {
   statusLine: 'In development',
 }
 
+export const social = {
+  xUrl: 'https://x.com/trilogicon/',
+  xHandle: '@trilogicon',
+  xLabel: 'Follow on X',
+}
+
 export const hero = {
   headline: 'Native chain. Account model. Built for clarity.',
   lead:
@@ -85,6 +91,18 @@ export const principles = {
       body: 'Engineering and roadmap favor durable foundations over launch-day spectacle.',
     },
   ],
+}
+
+export const builder = {
+  title: 'From the builder',
+  kicker: 'Personal note',
+  paragraphs: [
+    'I am building Trilogicon as a long-term protocol effort: a native chain with clear rules, careful validation, and software that can be reasoned about — not another rebranded stack or hype-driven roadmap.',
+    'V1 is intentionally narrow. I would rather establish correct fundamentals — signatures, state, blocks, sync — than layer on features that make the system harder to audit or trust.',
+    'What you see on this site is the real stage of the project: active design and implementation work, with no claim of a finished network or manufactured metrics. If that honesty resonates, you are exactly the kind of reader this project is for.',
+  ],
+  signOff: 'Trilogicon Dev',
+  signRole: 'Project lead',
 }
 
 export const v1 = {
@@ -225,22 +243,26 @@ export const roadmap = {
 export const footer = {
   note: `${brand.name} · ${brand.ticker} · ${brand.statusLine.toLowerCase()}`,
   links: [
-    { label: 'Vision', href: '#vision' },
-    { label: 'V1 scope', href: '#v1' },
-    { label: 'Architecture', href: '#architecture' },
-    { label: 'Roadmap', href: '#roadmap' },
-    { label: 'Status', href: '#status' },
+    { label: 'Vision', href: '/#vision' },
+    { label: 'Builder', href: '/#builder' },
+    { label: 'V1 scope', href: '/#v1' },
+    { label: 'Architecture', href: '/#architecture' },
+    { label: 'Roadmap', href: '/#roadmap' },
+    { label: 'Status', href: '/#status' },
+    { label: 'FAQ', href: '/faq' },
+    { label: 'Contact', href: '/faq#contact' },
     { label: 'GitHub', href: '#', placeholder: true },
-    { label: 'Contact', href: '#', placeholder: true },
   ],
 }
 
 export const nav = {
   links: [
-    { label: 'Vision', href: '#vision' },
-    { label: 'V1', href: '#v1' },
-    { label: 'Architecture', href: '#architecture' },
-    { label: 'Roadmap', href: '#roadmap' },
-    { label: 'Status', href: '#status' },
+    { label: 'Vision', href: '/#vision' },
+    { label: 'Builder', href: '/#builder' },
+    { label: 'V1', href: '/#v1' },
+    { label: 'Architecture', href: '/#architecture' },
+    { label: 'Roadmap', href: '/#roadmap' },
+    { label: 'Status', href: '/#status' },
+    { label: 'FAQ', href: '/faq' },
   ],
 }

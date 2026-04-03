@@ -1,7 +1,9 @@
+import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import { TrilogiconMark } from '../components/TrilogiconMark'
-import { brand, hero } from '../content/copy'
+import { XLogo } from '../components/icons/XLogo'
+import { brand, hero, social } from '../content/copy'
 
 export function HeroSection() {
   return (
@@ -65,24 +67,49 @@ export function HeroSection() {
           transition={{ duration: 0.45, delay: 0.28 }}
           className="mt-12 flex flex-col gap-3 sm:flex-row sm:flex-wrap"
         >
-          <a
-            href="#vision"
+          <Link
+            to="/#vision"
             className="inline-flex items-center justify-center gap-2 border border-zinc-100 bg-zinc-100 px-6 py-3 font-mono text-xs font-medium uppercase tracking-widest text-tril-black transition-[box-shadow,background-color] hover:bg-white hover:shadow-[0_0_24px_rgba(255,255,255,0.08)]"
           >
             {hero.ctaVision}
             <ArrowRight className="h-3.5 w-3.5" strokeWidth={2} />
-          </a>
-          <a
-            href="#v1"
+          </Link>
+          <Link
+            to="/#v1"
             className="inline-flex items-center justify-center gap-2 border border-zinc-700 bg-transparent px-6 py-3 font-mono text-xs font-medium uppercase tracking-widest text-zinc-200 transition-colors hover:border-zinc-500 hover:text-zinc-50"
           >
             {hero.ctaV1}
-          </a>
-          <a
-            href="#roadmap"
+          </Link>
+          <Link
+            to="/#roadmap"
             className="inline-flex items-center justify-center gap-2 border border-transparent px-6 py-3 font-mono text-xs font-medium uppercase tracking-widest text-zinc-500 transition-colors hover:text-zinc-300"
           >
             {hero.ctaRoadmap}
+          </Link>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.38 }}
+          className="mt-10 flex flex-wrap items-center gap-4 border-t border-zinc-800/80 pt-10"
+        >
+          <a
+            href={social.xUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`${social.xLabel}: ${social.xHandle} (opens in a new tab)`}
+            className="group inline-flex items-center gap-3 rounded border border-zinc-800 bg-tril-surface/40 px-4 py-3 transition-colors hover:border-zinc-600 hover:bg-tril-surface/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-500 focus-visible:ring-offset-2 focus-visible:ring-offset-tril-black"
+          >
+            <span className="text-zinc-100 transition-opacity group-hover:opacity-90">
+              <XLogo className="h-5 w-5" />
+            </span>
+            <span className="flex flex-col gap-0.5">
+              <span className="font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+                {social.xLabel}
+              </span>
+              <span className="font-mono text-sm text-zinc-300">{social.xHandle}</span>
+            </span>
           </a>
         </motion.div>
       </div>

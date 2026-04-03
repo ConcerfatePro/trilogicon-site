@@ -10,6 +10,7 @@ This project is a **static Vite + React** build. Cloudflare Pages serves the con
 |----------------|---------|
 | `wrangler.toml` | Tells Wrangler your **Pages project name**, **output directory** (`dist`), and **compatibility date** for CLI deploys. |
 | `public/_headers` | Security and caching headers on every deployment (copied into `dist` by Vite). |
+| `public/_redirects` | SPA fallback: serves `index.html` for client-side routes such as `/faq` (React Router). |
 | `.nvmrc` / `.node-version` | Pin **Node 22** for local dev and for CI (GitHub Actions). |
 | `package.json` → `engines` | Hints supported Node (≥20); Pages also respects `.nvmrc` when present. |
 | `package.json` → `pages:deploy` | `npm run build` then `wrangler pages deploy dist`. |
@@ -150,17 +151,15 @@ You can add more blocks per [Cloudflare Pages headers docs](https://developers.c
 
 ---
 
-## SPA / client-side routing (future)
+## SPA / client-side routing
 
-This app is a **single `index.html`** with in-page anchors (`#vision`, etc.). You do **not** need a `/* → /index.html` redirect today.
-
-If you later add **React Router** with paths like `/docs`, add a `public/_redirects` file:
+The app uses **React Router** (for example `/faq`). `public/_redirects` includes a fallback so direct loads and refreshes on those paths return `index.html` instead of 404:
 
 ```txt
 /*    /index.html   200
 ```
 
-See [Pages redirects](https://developers.cloudflare.com/pages/configuration/redirects/).
+Home anchors still use `/#section` and do not require extra routes. See [Pages redirects](https://developers.cloudflare.com/pages/configuration/redirects/).
 
 ---
 
@@ -169,7 +168,7 @@ See [Pages redirects](https://developers.cloudflare.com/pages/configuration/redi
 | Issue | What to check |
 |-------|----------------|
 | Build fails on Pages | Logs in **Deployments**; run `npm ci && npm run build` locally with the same Node version. |
-| Blank page or 404 on refresh | Wrong **output directory** (must be `dist`). For SPA routes later, add `_redirects` as above. |
+| Blank page or 404 on refresh (e.g. `/faq`) | **Output directory** must be `dist`; ensure `public/_redirects` is deployed (included in this repo). |
 | Assets 404 | `vite.config.js` should keep `base: '/'` for a site at the domain root. |
 | Wrangler ignores `wrangler.toml` | `pages_build_output_dir` must be set (this repo sets it to `dist`). |
 | `CLOUDFLARE_API_TOKEN` errors | Token needs **Pages → Edit**; must be non-interactive in CI. |
