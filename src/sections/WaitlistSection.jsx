@@ -3,8 +3,9 @@ import { motion } from 'framer-motion'
 import { SectionShell } from '../components/SectionShell'
 import { waitlist as waitlistCopy } from '../content/copy'
 
-const API_URL = import.meta.env.VITE_WAITLIST_API_URL || ''
-const SITE_KEY = import.meta.env.VITE_TURNSTILE_SITE_KEY || ''
+/** Build-time only: set in `.env` (local), `.env.production` (committed for Pages), or Cloudflare Pages env. */
+const API_URL = String(import.meta.env.VITE_WAITLIST_API_URL ?? '').trim()
+const SITE_KEY = String(import.meta.env.VITE_TURNSTILE_SITE_KEY ?? '').trim()
 const TURNSTILE_SCRIPT_ID = 'cf-turnstile-api-v3'
 const TURNSTILE_SRC = 'https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
 
@@ -76,7 +77,7 @@ export function WaitlistSection() {
       }
       widgetIdRef.current = null
     }
-  }, [configured])
+  }, [configured, SITE_KEY])
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -140,9 +141,52 @@ export function WaitlistSection() {
         </motion.div>
 
         {!configured ? (
-          <p className="mt-8 rounded border border-zinc-800 bg-tril-elevated/60 p-5 text-sm text-zinc-500">
-            {waitlistCopy.configHint}
-          </p>
+          <div className="mt-8 space-y-4 rounded border border-zinc-800 bg-tril-elevated/60 p-5 text-sm text-zinc-500">
+            <p className="font-medium text-zinc-300">{waitlistCopy.configHint}</p>
+            <p className="leading-relaxed">
+              This app does not “call” keys at runtime. Vite bakes{' '}
+              <code className="rounded bg-zinc-900 px-1 text-zinc-300">
+                import.meta.env.VITE_WAITLIST_API_URL
+              </code>{' '}
+              and{' '}
+              <code className="rounded bg-zinc-900 px-1 text-zinc-300">
+                import.meta.env.VITE_TURNSTILE_SITE_KEY
+              </code>{' '}
+              into the JavaScript when the dev server <strong>starts</strong> or when{' '}
+              <strong>Cloudflare Pages runs npm run build</strong>. If those values were missing then,
+              they stay empty forever until you rebuild.
+            </p>
+            <div className="space-y-3 border-l-2 border-zinc-600 pl-4">
+              <p>
+                <strong className="text-zinc-400">Local (localhost)</strong>
+                <br />
+                Create <code className="text-zinc-400">.env</code> in the project root (same folder as{' '}
+                <code className="text-zinc-400">package.json</code>), put:
+              </p>
+              <pre className="overflow-x-auto rounded border border-zinc-800 bg-tril-black p-3 text-xs text-zinc-400">
+                {`VITE_WAITLIST_API_URL=https://trilogicon-waitlist.devinschin.workers.dev/api/waitlist
+VITE_TURNSTILE_SITE_KEY=0x4AAAAAACz8p69WJbdMHTqm`}
+              </pre>
+              <p>
+                Then <strong className="text-zinc-400">stop</strong> and run{' '}
+                <code className="text-zinc-400">npm run dev</code> again.
+              </p>
+              <p>
+                <strong className="text-zinc-400">Live site (Cloudflare Pages)</strong>
+                <br />
+                Dashboard → your Pages project → <strong>Settings</strong> →{' '}
+                <strong>Environment variables</strong> → add exactly those two names for{' '}
+                <strong>Production</strong> → Save → <strong>Deployments</strong> → Retry or push a new
+                commit so the site rebuilds.
+              </p>
+            </div>
+            {import.meta.env.DEV ? (
+              <p className="font-mono text-xs text-amber-200/90">
+                Dev diagnostic: VITE_WAITLIST_API_URL is {API_URL ? 'set' : 'EMPTY'} ·
+                VITE_TURNSTILE_SITE_KEY is {SITE_KEY ? 'set' : 'EMPTY'}
+              </p>
+            ) : null}
+          </div>
         ) : success ? (
           <motion.div
             role="status"

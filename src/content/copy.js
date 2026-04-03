@@ -31,7 +31,7 @@ export const waitlist = {
     'Thank you. Your request has been received.',
   errorGeneric: 'Something went wrong. Please try again later.',
   configHint:
-    'Waitlist signups are not enabled in this build yet. Set VITE_WAITLIST_API_URL and VITE_TURNSTILE_SITE_KEY to activate.',
+    'This build has no waitlist API URL or Turnstile site key embedded. See instructions below.',
 }
 
 export const hero = {
