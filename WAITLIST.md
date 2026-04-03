@@ -15,16 +15,13 @@ This document describes the **Early Trilogicon Waitlist** backend and how it con
 
 **Why separate Worker from Pages?** Keeps API logic in one deployable unit, secrets off the static host, and D1/KV bindings explicit. The Pages app only needs public env vars (`VITE_*`).
 
-**Files (logic per file)**
+**Code**
 
 | File | Purpose |
 |------|---------|
-| `workers/waitlist/src/index.ts` | Request lifecycle: method/path, CORS, size, JSON parse, field + Turnstile validation, rate limit, `INSERT OR IGNORE`. Generic JSON errors; no stack traces. |
-| `workers/waitlist/src/validation.ts` | Allowlisted JSON keys, email/source/x_handle normalization and bounds. Rejects unknown top-level keys (mass-assignment / extra field hardening). |
-| `workers/waitlist/src/turnstile.ts` | Fixed `POST` to Cloudflare’s `siteverify` with `application/x-www-form-urlencoded` (no caller-controlled URL → no SSRF from user input). |
-| `workers/waitlist/src/rateLimit.ts` | Fixed-window KV counter per `CF-Connecting-IP`. |
+| `workers/waitlist/worker.js` | **Single Worker file** (same idea as Cloudflare’s `worker.js`): routing, CORS, validation, Turnstile verify, optional KV rate limit, parameterized D1 `INSERT OR IGNORE`. |
 | `workers/waitlist/migrations/0001_waitlist.sql` | Schema + unique index on `email` + index on `created_at`. |
-| `src/sections/WaitlistSection.jsx` | Frontend form; loads Turnstile script once; submits only over HTTPS from configured origin in production. |
+| `src/sections/WaitlistSection.jsx` | Frontend form; Turnstile widget; `POST` to Worker. |
 
 ---
 
@@ -54,24 +51,18 @@ This document describes the **Early Trilogicon Waitlist** backend and how it con
 
 ```text
 workers/waitlist/
-  wrangler.toml
+  wrangler.toml      # main = "worker.js"
   package.json
-  tsconfig.json
+  worker.js          # entire Worker (dashboard + Wrangler)
   migrations/
     0001_waitlist.sql
-  src/
-    index.ts          # HTTP handler
-    types.ts          # Env interface
-    validation.ts     # Field + shape validation
-    turnstile.ts      # siteverify
-    rateLimit.ts      # KV window
 
 src/
   sections/WaitlistSection.jsx
-  vite-env.d.ts       # import.meta.env + window.turnstile
+  vite-env.d.ts
 
-.env.example          # VITE_* template at repo root
-WAITLIST.md           # This file
+.env.example
+WAITLIST.md
 ```
 
 ---
@@ -90,7 +81,7 @@ See `workers/waitlist/migrations/0001_waitlist.sql` (applied via Wrangler). Summ
 
 ## 5–7. Worker, validation, and Turnstile
 
-Implementation lives in `workers/waitlist/src/` as above. **No validation library** — small manual checks only, easier to audit.
+All server logic is in **`workers/waitlist/worker.js`** (plain JavaScript, no separate build step). **No validation library** — manual checks only, easier to audit.
 
 ---
 

@@ -6,7 +6,8 @@
 # Secret: wrangler secret put TURNSTILE_SECRET
 
 name = "trilogicon-waitlist"
-main = "src/index.ts"
+# Single-file Worker (matches Cloudflare dashboard default name).
+main = "worker.js"
 compatibility_date = "2025-04-01"
 
 [[d1_databases]]

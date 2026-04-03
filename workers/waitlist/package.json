@@ -5,13 +5,10 @@
   "scripts": {
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
-    "types": "wrangler types",
     "d1:local": "wrangler d1 migrations apply DB --local",
     "d1:remote": "wrangler d1 migrations apply DB --remote"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20250413.0",
-    "typescript": "^5.7.2",
     "wrangler": "^4.0.0"
   }
 }
