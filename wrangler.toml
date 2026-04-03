@@ -1,0 +1,8 @@
+# Cloudflare Pages — Wrangler reads this for `wrangler pages deploy`.
+# `name` must match your Pages project name in the Cloudflare dashboard.
+#
+# Docs: https://developers.cloudflare.com/pages/configuration/wrangler-configuration/
+
+name = "trilogicon-site"
+compatibility_date = "2025-04-01"
+pages_build_output_dir = "dist"

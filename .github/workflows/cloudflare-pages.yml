@@ -1,0 +1,41 @@
+# Optional: deploy with GitHub Actions instead of (or in addition to) Cloudflare’s
+# built-in “Connect to Git”. Disable this workflow if you only use Cloudflare Git integration.
+#
+# Required repository secrets:
+#   CLOUDFLARE_API_TOKEN   — Create at Dashboard → My Profile → API Tokens
+#                            (Permissions: Account → Cloudflare Pages → Edit)
+#   CLOUDFLARE_ACCOUNT_ID  — Dashboard → any domain → right sidebar → Account ID
+
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: npm
+
+      - name: Install and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=trilogicon-site
