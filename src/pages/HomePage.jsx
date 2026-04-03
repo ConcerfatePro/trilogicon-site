@@ -7,6 +7,7 @@ import { V1Section } from '../sections/V1Section'
 import { ArchitectureSection } from '../sections/ArchitectureSection'
 import { StatusSection } from '../sections/StatusSection'
 import { RoadmapSection } from '../sections/RoadmapSection'
+import { WaitlistSection } from '../sections/WaitlistSection'
 
 export function HomePage() {
   return (
@@ -20,6 +21,7 @@ export function HomePage() {
       <ArchitectureSection />
       <StatusSection />
       <RoadmapSection />
+      <WaitlistSection />
     </main>
   )
 }

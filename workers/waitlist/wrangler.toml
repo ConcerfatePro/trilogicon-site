@@ -1,0 +1,30 @@
+# Trilogicon waitlist Worker — deploy separately from Pages.
+# From this directory: npm run deploy
+#
+# Replace database_id after: wrangler d1 create trilogicon-waitlist
+# Create KV: wrangler kv namespace create RATE_LIMIT_KV
+# Secret: wrangler secret put TURNSTILE_SECRET
+
+name = "trilogicon-waitlist"
+main = "src/index.ts"
+compatibility_date = "2025-04-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "trilogicon-waitlist"
+database_id = "REPLACE_WITH_YOUR_D1_UUID"
+
+# Recommended for production: create KV (`wrangler kv namespace create RATE_LIMIT_KV`)
+# and uncomment — otherwise rate limiting is skipped (Turnstile + unique email still apply).
+# [[kv_namespaces]]
+# binding = "RATE_LIMIT_KV"
+# id = "YOUR_KV_NAMESPACE_ID"
+
+[vars]
+# Comma-separated exact origins (scheme + host + port). No trailing slashes.
+ALLOWED_ORIGINS = "http://localhost:5173"
+
+# Optional: map a route on your zone (uncomment and edit).
+# [[routes]]
+# pattern = "waitlist.example.com/*"
+# zone_name = "example.com"

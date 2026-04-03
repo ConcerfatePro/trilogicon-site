@@ -15,6 +15,25 @@ export const social = {
   xLabel: 'Follow on X',
 }
 
+export const waitlist = {
+  title: 'Early Trilogicon Waitlist',
+  subtitle:
+    'Share your email if you want occasional, low-noise updates as V1 development progresses. No spam, no token sale language — optional X handle for context only.',
+  emailLabel: 'Email address',
+  emailPlaceholder: 'you@example.com',
+  xLabel: 'X handle (optional)',
+  xPlaceholder: 'trilogicon',
+  helper:
+    'Protected with a bot challenge. We use your email only for occasional project updates. Duplicate requests are handled quietly.',
+  submit: 'Join waitlist',
+  submitting: 'Submitting…',
+  success:
+    'Thank you. Your request has been received.',
+  errorGeneric: 'Something went wrong. Please try again later.',
+  configHint:
+    'Waitlist signups are not enabled in this build yet. Set VITE_WAITLIST_API_URL and VITE_TURNSTILE_SITE_KEY to activate.',
+}
+
 export const hero = {
   headline: 'Native chain. Account model. Built for clarity.',
   lead:
@@ -249,6 +268,7 @@ export const footer = {
     { label: 'Architecture', href: '/#architecture' },
     { label: 'Roadmap', href: '/#roadmap' },
     { label: 'Status', href: '/#status' },
+    { label: 'Waitlist', href: '/#waitlist' },
     { label: 'FAQ', href: '/faq' },
     { label: 'Contact', href: '/faq#contact' },
     { label: 'GitHub', href: '#', placeholder: true },
@@ -263,6 +283,7 @@ export const nav = {
     { label: 'Architecture', href: '/#architecture' },
     { label: 'Roadmap', href: '/#roadmap' },
     { label: 'Status', href: '/#status' },
+    { label: 'Waitlist', href: '/#waitlist' },
     { label: 'FAQ', href: '/faq' },
   ],
 }
