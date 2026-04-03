@@ -259,6 +259,34 @@ export const roadmap = {
   ],
 }
 
+/** /support — voluntary development support; not investment or token sale language */
+export const supportPage = {
+  kicker: 'Trilogicon · TRIL',
+  title: 'Support Trilogicon',
+  intro:
+    'Trilogicon is being built as a long-term engineering project focused on simple, secure, and understandable digital value transfer. For those who want to support development, optional contributions can help with infrastructure, testing, documentation, and related project costs.',
+  whatHelpsTitle: 'What support helps with',
+  whatHelpsItems: [
+    'Website and infrastructure costs',
+    'Development tooling',
+    'Testing environments',
+    'Documentation and public resources',
+    'Future testnet-related needs',
+  ],
+  donationTitle: 'Donation address',
+  addressNetworkLabel: 'Ethereum / EVM-compatible address',
+  address: '0x2aedd5341ca809390f897dfd1c0dc63486432214',
+  verifyNote:
+    'Before sending anything, verify this address carefully—character by character. Blockchain transfers are irreversible.',
+  copyButtonLabel: 'Copy address',
+  copiedMessage: 'Address copied',
+  transparencyTitle: 'Transparency',
+  transparencyBody:
+    'Support is entirely optional and does not provide ownership, governance rights, investment returns, or special financial status in the project. Contributions are simply a voluntary way to support Trilogicon’s continued development.',
+  thankYouTitle: 'Thank you',
+  thankYouBody: 'Thank you to everyone following and supporting the project in good faith.',
+}
+
 export const footer = {
   note: `${brand.name} · ${brand.ticker} · ${brand.statusLine.toLowerCase()}`,
   links: [
@@ -270,6 +298,7 @@ export const footer = {
     { label: 'Status', href: '/#status' },
     { label: 'Waitlist', href: '/#waitlist' },
     { label: 'FAQ', href: '/faq' },
+    { label: 'Support', href: '/support' },
     { label: 'Contact', href: '/faq#contact' },
     { label: 'GitHub', href: '#', placeholder: true },
   ],
@@ -284,6 +313,7 @@ export const nav = {
     { label: 'Roadmap', href: '/#roadmap' },
     { label: 'Status', href: '/#status' },
     { label: 'Waitlist', href: '/#waitlist' },
+    { label: 'Support', href: '/support' },
     { label: 'FAQ', href: '/faq' },
   ],
 }
