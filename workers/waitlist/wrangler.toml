@@ -13,7 +13,7 @@ compatibility_date = "2025-04-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "trilogicon-waitlist"
-database_id = "REPLACE_WITH_YOUR_D1_UUID"
+database_id = "015833bc-8fa5-4658-a460-10e802b11150"
 
 # Recommended for production: create KV (`wrangler kv namespace create RATE_LIMIT_KV`)
 # and uncomment — otherwise rate limiting is skipped (Turnstile + unique email still apply).
@@ -22,7 +22,8 @@ database_id = "REPLACE_WITH_YOUR_D1_UUID"
 # id = "YOUR_KV_NAMESPACE_ID"
 
 [vars]
-# Comma-separated exact origins (scheme + host + port). No trailing slashes.
+# Add your Cloudflare Pages origin here (exact match) or the waitlist POST will get 403 from production.
+# Comma-separated, no trailing slashes. Example: "http://localhost:5173,https://your-project.pages.dev"
 ALLOWED_ORIGINS = "http://localhost:5173"
 
 # Optional: map a route on your zone (uncomment and edit).
