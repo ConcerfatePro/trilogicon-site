@@ -258,7 +258,9 @@ export const roadmap = {
     {
       id: 'V2',
       title: 'V2',
-      body: 'Improved networking, synchronization, and node reliability; more resilient peer behavior.',
+      body: 'Locked scope: networking reliability, synchronization, recovery, persistence, observability, and reliability-focused testing.',
+      href: '/v2',
+      cta: 'Read locked scope',
     },
     {
       id: 'V3',
@@ -271,6 +273,173 @@ export const roadmap = {
       body: 'Only after the core is genuinely strong — possible tooling, programmability, or extensions if justified and if the base stays understandable and secure.',
     },
   ],
+}
+
+/** /v2 — locked engineering scope; light-themed page */
+export const v2Page = {
+  docTitle: 'Trilogicon V2 — locked scope',
+  heroKicker: 'Version scope',
+  heroTitle: 'Trilogicon V2',
+  heroBadge: 'Locked engineering scope',
+  heroLead:
+    'V2 is the reliability phase for Trilogicon node software.',
+  heroSub:
+    'The work is centered on networking, synchronization, recovery, persistence, message flow, observability, and reliability-focused testing under real multi-node conditions. It does not expand the asset model or turn the chain into a broader application platform.',
+  summaryCards: [
+    {
+      label: 'Status',
+      title: 'V1 is complete',
+      body: 'The native base layer, account model, signed transfers, validation, and initial multi-node operation are already established.',
+    },
+    {
+      label: 'V2 focus',
+      title: 'Reliability and recovery',
+      body: 'The next phase is about safer peer behavior, clearer synchronization, stronger restart behavior, and more dependable node operation.',
+    },
+    {
+      label: 'Constraint',
+      title: 'No protocol expansion',
+      body: 'V2 does not broaden Trilogicon into a smart-contract platform, DeFi stack, staking redesign, or marketing-driven feature set.',
+    },
+  ],
+  anchorNav: [
+    { id: 'context', label: 'Context' },
+    { id: 'goal', label: 'Goal' },
+    { id: 'in-scope', label: 'In scope' },
+    { id: 'out-of-scope', label: 'Out of scope' },
+    { id: 'discipline', label: 'Discipline' },
+    { id: 'references', label: 'References' },
+  ],
+  contextTitle: 'Context',
+  contextIntro:
+    'V2 follows a completed V1. It is a defined engineering phase for node resilience, not an open-ended roadmap bucket.',
+  contextCards: [
+    {
+      label: 'After V1',
+      title: 'The foundation is already set',
+      body: 'V1 established a native base layer with a deliberately small protocol surface: value transfer, balances, nonces, validation, and initial multi-node synchronization.',
+    },
+    {
+      label: 'What V2 changes',
+      title: 'Node behavior under real conditions',
+      body: 'V2 focuses on how nodes connect, exchange data, recover, catch up, reload persisted state, and expose enough operational detail to debug distributed behavior.',
+    },
+    {
+      label: 'What stays fixed',
+      title: 'The protocol remains narrow',
+      body: 'TRIL remains the native asset on an independent base-layer chain. V2 does not redefine the asset model or widen the protocol into a general application platform.',
+    },
+  ],
+  goalTitle: 'Locked V2 goal',
+  goalLead:
+    'Make Trilogicon nodes more reliable, more recoverable, and more predictable in real multi-node conditions.',
+  goalConstraintLabel: 'Constraint',
+  goalConstraintBody:
+    'Improve node behavior and network resilience without expanding the core asset model or turning the chain into a broader application platform.',
+  inScopeTitle: 'In scope',
+  inScopeIntro:
+    'Each item below is reliability work for distributed node operation. The scope is technical, limited, and testable.',
+  inScopePillars: [
+    {
+      key: 'networking',
+      title: 'Networking reliability',
+      items: [
+        'Cleaner peer connection handling',
+        'Stronger message validation boundaries',
+        'Defensive handling of malformed, stale, or spammy peer data',
+        'Safer and more predictable peer behavior',
+      ],
+    },
+    {
+      key: 'sync',
+      title: 'Synchronization improvements',
+      items: [
+        'Safer block download and catch-up flow',
+        'Clearer chain tip comparison',
+        'Better node catch-up behavior',
+        'Improved behavior when a node falls behind and rejoins',
+      ],
+    },
+    {
+      key: 'recovery',
+      title: 'Failure recovery',
+      items: [
+        'Stronger restart behavior',
+        'Better recovery after interruption or crash',
+        'Clearer recovery path from persisted chain and state',
+        'Safer handling of incomplete local progress',
+      ],
+    },
+    {
+      key: 'storage',
+      title: 'Storage and persistence strengthening',
+      items: [
+        'Stronger persistence guarantees',
+        'Cleaner chain and state storage boundaries',
+        'Safer reload behavior',
+        'Stronger recovery-oriented storage design',
+      ],
+    },
+    {
+      key: 'messages',
+      title: 'Message-flow cleanup',
+      items: [
+        'Clearer and more explicit peer message handling',
+        'Better separation between transport or network handling and consensus validation',
+        'Less coupling between node subsystems',
+      ],
+    },
+    {
+      key: 'observability',
+      title: 'Observability',
+      items: [
+        'Better logging for sync, peer events, block acceptance and rejection, and recovery',
+        'Enough operational visibility to debug distributed node behavior',
+        'Clearer insight into what the node is doing during network activity',
+      ],
+    },
+    {
+      key: 'testing',
+      title: 'Reliability-focused testing',
+      items: [
+        'More multi-node synchronization tests',
+        'Restart and recovery tests',
+        'Malformed peer and message tests',
+        'Fork and reorganization behavior tests',
+        'Convergence tests showing honest nodes reach the same result',
+      ],
+    },
+  ],
+  outScopeTitle: 'Explicitly out of scope',
+  outScopeIntro:
+    'These items are outside the locked V2 boundary and should not be read into this phase.',
+  outScopeItems: [
+    'Smart contracts',
+    'Staking or validator economy redesign',
+    'DeFi',
+    'Bridges',
+    'Multiple token standards',
+    'Privacy features',
+    'Major consensus redesign',
+    'Performance chasing for marketing purposes',
+    '“High TPS” expansion as a headline feature',
+    'Broad protocol expansion unrelated to reliability',
+  ],
+  narrowTitle: 'Why V2 stays narrow',
+  narrowParagraphs: [
+    'V2 is about making nodes more reliable, not making the protocol bigger. A wider surface area makes failures harder to reproduce, harder to test, and harder to reason about across independent operators.',
+    'The locked scope keeps engineering accountable to outcomes that can be checked directly: stable synchronization, sane recovery, clearer operating signals, and predictable behavior when peers or local state are imperfect.',
+  ],
+  meansTitle: 'What this means for Trilogicon',
+  meansBody:
+    'The project remains a native base-layer chain focused on understandable value transfer. V2 invests in the harder operational work around that core: peers, restarts, persistence, validation boundaries, and tests that reflect actual multi-node behavior. Credibility comes from node behavior, not from a larger feature list.',
+  closingTitle: 'References',
+  closingBody:
+    'Public repositories remain the authoritative source for implementation detail. This page is a scope statement, not a speculative product pitch.',
+  ctaHome: 'Home',
+  ctaRoadmap: 'Version roadmap',
+  ctaGithub: 'Core repository',
+  githubUrl: 'https://github.com/ConcerfatePro/trilogicon-core',
 }
 
 /** /support — voluntary development support; not investment or token sale language */
@@ -307,6 +476,7 @@ export const footer = {
     { label: 'Vision', href: '/#vision' },
     { label: 'Builder', href: '/#builder' },
     { label: 'V1 scope', href: '/#v1' },
+    { label: 'V2 scope', href: '/v2' },
     { label: 'Source', href: '/#source' },
     { label: 'Architecture', href: '/#architecture' },
     { label: 'Roadmap', href: '/#roadmap' },
@@ -328,6 +498,7 @@ export const nav = {
     { label: 'Vision', href: '/#vision' },
     { label: 'Builder', href: '/#builder' },
     { label: 'V1', href: '/#v1' },
+    { label: 'V2', href: '/v2' },
     { label: 'Source', href: '/#source' },
     { label: 'Architecture', href: '/#architecture' },
     { label: 'Roadmap', href: '/#roadmap' },

@@ -6,6 +6,7 @@ import { FooterSection } from '../sections/FooterSection'
 
 export function Layout() {
   const location = useLocation()
+  const isV2Page = location.pathname === '/v2'
 
   useEffect(() => {
     if (location.hash) {
@@ -22,12 +23,18 @@ export function Layout() {
   }, [location.pathname, location.hash])
 
   return (
-    <div className="relative isolate min-h-svh bg-tril-black text-zinc-100 antialiased">
-      <SiteBackdrop />
-      <Navbar />
+    <div
+      className={
+        isV2Page
+          ? 'relative isolate min-h-svh bg-[#fafafa] text-zinc-900 antialiased'
+          : 'relative isolate min-h-svh bg-tril-black text-zinc-100 antialiased'
+      }
+    >
+      {!isV2Page ? <SiteBackdrop /> : null}
+      <Navbar variant={isV2Page ? 'light' : 'dark'} />
       <div className="relative z-[1]">
         <Outlet />
-        <FooterSection />
+        <FooterSection variant={isV2Page ? 'light' : 'dark'} />
       </div>
     </div>
   )

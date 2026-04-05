@@ -95,7 +95,19 @@ body {
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
 }
 
+.v2-grid-overlay {
+  background-image:
+    linear-gradient(rgb(0 0 0 / 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(0 0 0 / 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
 /* Section anchors clear fixed nav */
 section[id] {
   scroll-margin-top: 5.5rem;
+}
+
+/* V2 page: fixed header + sticky in-page nav */
+.v2-page section[id] {
+  scroll-margin-top: 7.75rem;
 }

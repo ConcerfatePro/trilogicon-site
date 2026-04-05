@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 import { SectionShell } from '../components/SectionShell'
 import { roadmap } from '../content/copy'
 
@@ -39,6 +40,14 @@ export function RoadmapSection() {
                   {v.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-zinc-500">{v.body}</p>
+                {v.href ? (
+                  <Link
+                    to={v.href}
+                    className="mt-5 inline-flex items-center border border-zinc-700 px-4 py-2 font-mono text-[10px] font-medium uppercase tracking-widest text-zinc-300 transition-colors hover:border-zinc-500 hover:text-zinc-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400 focus-visible:ring-offset-2 focus-visible:ring-offset-tril-black"
+                  >
+                    {v.cta}
+                  </Link>
+                ) : null}
               </div>
             </motion.li>
           ))}
