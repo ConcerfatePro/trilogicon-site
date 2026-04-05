@@ -4,6 +4,7 @@ import { WhySection } from '../sections/WhySection'
 import { PrinciplesSection } from '../sections/PrinciplesSection'
 import { BuilderSection } from '../sections/BuilderSection'
 import { V1Section } from '../sections/V1Section'
+import { SourceSection } from '../sections/SourceSection'
 import { ArchitectureSection } from '../sections/ArchitectureSection'
 import { StatusSection } from '../sections/StatusSection'
 import { RoadmapSection } from '../sections/RoadmapSection'
@@ -18,6 +19,7 @@ export function HomePage() {
       <PrinciplesSection />
       <BuilderSection />
       <V1Section />
+      <SourceSection />
       <ArchitectureSection />
       <StatusSection />
       <RoadmapSection />

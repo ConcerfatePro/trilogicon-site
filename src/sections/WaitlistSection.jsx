@@ -77,7 +77,7 @@ export function WaitlistSection() {
       }
       widgetIdRef.current = null
     }
-  }, [configured, SITE_KEY])
+  }, [configured])
 
   const handleSubmit = async (e) => {
     e.preventDefault()

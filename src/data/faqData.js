@@ -42,7 +42,7 @@ export const faqCategories = [
   },
   {
     id: 'v1',
-    title: 'V1 Development',
+    title: 'V1 release',
     items: [
       {
         id: 'v1-focus',
@@ -54,13 +54,13 @@ export const faqCategories = [
         id: 'v1-experimental',
         question: 'Is Trilogicon still experimental?',
         answer:
-          'The project is still early and under active development. That said, the direction is intentional: the protocol boundaries, security posture, and scope are being chosen deliberately rather than ad hoc. “Experimental” here reflects the stage of development, not a lack of design discipline.',
+          'V1 is released in public source as a narrow, fundamentals-first implementation. The project remains early in a long-term sense: hardening, documentation, and later versions are ongoing. “Experimental” can still apply to how you deploy or rely on any network — always verify behavior against the code you run.',
       },
       {
         id: 'v1-live',
-        question: 'Is Trilogicon currently live?',
+        question: 'Is Trilogicon V1 live?',
         answer:
-          'No. Trilogicon is currently in development and is not being presented as a live production mainnet. All public communication reflects that stage honestly, without fabricated launch claims or operational metrics.',
+          'Yes. Trilogicon v1 is finished and available in the public repositories: a minimal value-transfer core with signed transactions, balances and nonces, block validation, and multi-node synchronization. This is not marketing hype — inspect the implementation for authoritative detail. Operational “mainnet” claims are left to honest deployment language, not this site.',
       },
       {
         id: 'v1-excluded',
@@ -72,7 +72,7 @@ export const faqCategories = [
         id: 'v1-adopters',
         question: 'Are early adopters being brought in now, or later?',
         answer:
-          'The immediate priority is building the foundation correctly: consistent validation, reliable state transitions, and dependable node behavior. Broader visibility and community growth can develop gradually as the implementation and documentation mature.',
+          'Anyone can read and run the public code. The priority remains correctness and clarity: consistent validation, reliable state transitions, and dependable node behavior. Broader visibility can grow gradually as documentation and operational guidance mature.',
       },
       {
         id: 'v1-minimal',
@@ -108,7 +108,7 @@ export const faqCategories = [
         id: 'tech-smart-contracts',
         question: 'Will Trilogicon include smart contracts?',
         answer:
-          'Smart contracts are not part of V1. The current focus is a simple and secure transfer network with strict validation rules. More advanced programmability would only be considered later if the base layer is strong enough to support it responsibly.',
+          'Smart contracts are not part of V1. The shipped first release is a simple and secure transfer network with strict validation rules. More advanced programmability would only be considered later if the base layer is strong enough to support it responsibly.',
       },
       {
         id: 'tech-meme-token',
@@ -138,7 +138,7 @@ export const faqCategories = [
         id: 'tech-evolve',
         question: 'How will the project evolve after V1?',
         answer:
-          'Later versions are expected to improve networking, synchronization, resilience, consensus design, and performance after V1 establishes a correct and stable foundation. Broader features would only be considered cautiously and when justified by maturity and clarity.',
+          'Later versions are expected to improve networking, synchronization, resilience, consensus design, and performance now that V1 establishes a correct baseline. Broader features would only be considered cautiously and when justified by maturity and clarity.',
       },
       {
         id: 'tech-longterm',
@@ -156,7 +156,7 @@ export const faqCategories = [
 		  id: 'com-updates',
 		  question: 'Where can updates be followed?',
 		  answer:
-			'Updates are shared through the project’s public channels as development progresses.\n\nX: https://x.com/trilogicon/',
+			'Updates are shared through the project’s public channels as work continues.\n\nX: https://x.com/trilogicon/\nCore source: https://github.com/ConcerfatePro/trilogicon-core',
 		},
 		{
 		  id: 'com-questions',
@@ -178,5 +178,5 @@ export const contactSectionContent = {
   title: 'Still have a question?',
   description:
     'If your question is not covered here, you can reach out directly.\n\nEmail: contact@trilogicon.com\nX: https://x.com/trilogicon/\n\nAs the project develops, more structured communication and documentation will be added.',
-  note: 'Common questions may be incorporated into this page over time as development progresses.',
+  note: 'Common questions may be incorporated into this page over time as the project evolves.',
 }

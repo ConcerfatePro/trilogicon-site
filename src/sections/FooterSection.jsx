@@ -29,6 +29,16 @@ export function FooterSection() {
                     (soon)
                   </span>
                 </a>
+              ) : link.external ? (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-xs uppercase tracking-widest text-zinc-500 transition-colors hover:text-zinc-300"
+                >
+                  {link.label}
+                </a>
               ) : (
                 <Link
                   key={link.href}

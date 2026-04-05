@@ -2,8 +2,12 @@
 # https://developers.cloudflare.com/pages/configuration/headers/
 
 /*
+  Content-Security-Policy: default-src 'self'; base-uri 'self'; frame-ancestors 'none'; form-action 'self'; object-src 'none'; script-src 'self' https://challenges.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://challenges.cloudflare.com https://trilogicon-waitlist.devinschin.workers.dev; frame-src https://challenges.cloudflare.com; manifest-src 'self'; worker-src 'self' blob:; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
+  Cross-Origin-Opener-Policy: same-origin
+  Origin-Agent-Cluster: ?1
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()
 

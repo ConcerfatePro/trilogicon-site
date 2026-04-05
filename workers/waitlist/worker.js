@@ -10,6 +10,9 @@
 const MAX_BODY_BYTES = 8192
 const JSON_CONTENT = 'application/json'
 const TURNSTILE_VERIFY_URL = 'https://challenges.cloudflare.com/turnstile/v0/siteverify'
+const API_CSP = "default-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'none'"
+const API_PERMISSIONS_POLICY =
+  'accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()'
 
 const MAX_EMAIL_LEN = 254
 const MAX_X_HANDLE_LEN = 15
@@ -21,17 +24,25 @@ const ALLOWED_SOURCES = ['homepage', 'faq', 'x', 'direct']
 const RATE_WINDOW_SEC = 600
 const RATE_MAX = 15
 
-function parseAllowedOrigins(raw) {
+function parseAllowedOrigins(raw = '') {
   return raw
     .split(',')
     .map((s) => s.trim())
     .filter(Boolean)
 }
 
+function applySecurityHeaders(headers) {
+  headers.set('Content-Security-Policy', API_CSP)
+  headers.set('Permissions-Policy', API_PERMISSIONS_POLICY)
+  headers.set('Referrer-Policy', 'no-referrer')
+  headers.set('X-Content-Type-Options', 'nosniff')
+  headers.set('X-Frame-Options', 'DENY')
+}
+
 function corsHeaders(request, env) {
   const headers = new Headers()
   const origin = request.headers.get('Origin')
-  const allowed = parseAllowedOrigins(env.ALLOWED_ORIGINS || '')
+  const allowed = parseAllowedOrigins(env.ALLOWED_ORIGINS)
   if (origin && allowed.includes(origin)) {
     headers.set('Access-Control-Allow-Origin', origin)
     headers.set('Vary', 'Origin')
@@ -41,6 +52,7 @@ function corsHeaders(request, env) {
   }
   headers.set('Content-Type', `${JSON_CONTENT}; charset=utf-8`)
   headers.set('Cache-Control', 'no-store')
+  applySecurityHeaders(headers)
   return headers
 }
 
@@ -111,6 +123,11 @@ function extractTurnstileToken(body) {
   return s
 }
 
+function hasJsonContentType(value) {
+  if (typeof value !== 'string') return false
+  return value.split(';')[0].trim().toLowerCase() === JSON_CONTENT
+}
+
 async function verifyTurnstileToken(params) {
   const { secret, token, remoteip } = params
   if (!secret || secret.length < 10) return false
@@ -171,13 +188,13 @@ export default {
     }
 
     const origin = request.headers.get('Origin')
-    const allowedOrigins = parseAllowedOrigins(env.ALLOWED_ORIGINS || '')
+    const allowedOrigins = parseAllowedOrigins(env.ALLOWED_ORIGINS)
     if (!origin || !allowedOrigins.includes(origin)) {
       return jsonResponse(request, env, 403, { ok: false, error: 'forbidden' })
     }
 
     const ct = request.headers.get('Content-Type') || ''
-    if (!ct.toLowerCase().includes(JSON_CONTENT)) {
+    if (!hasJsonContentType(ct)) {
       return jsonResponse(request, env, 415, { ok: false, error: 'unsupported_type' })
     }
 

@@ -9,16 +9,9 @@ export function HeroSection() {
   return (
     <div
       id="top"
-      className="relative overflow-hidden border-b border-zinc-800/80 bg-tril-black pt-24 pb-20 md:pt-32 md:pb-28"
+      className="relative overflow-hidden border-b border-zinc-800/80 bg-transparent pt-24 pb-20 md:pt-32 md:pb-28"
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.07]"
-        style={{
-          backgroundImage: `linear-gradient(90deg, transparent 0%, transparent 49%, rgb(63 63 70) 50%, transparent 51%),
-            linear-gradient(0deg, transparent 0%, transparent 49%, rgb(63 63 70) 50%, transparent 51%)`,
-          backgroundSize: '64px 64px',
-        }}
-      />
+      <div className="hero-grid-overlay pointer-events-none absolute inset-0 opacity-[0.045]" />
       <div className="relative mx-auto max-w-6xl px-5 md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -79,6 +72,12 @@ export function HeroSection() {
             className="inline-flex items-center justify-center gap-2 border border-zinc-700 bg-transparent px-6 py-3 font-mono text-xs font-medium uppercase tracking-widest text-zinc-200 transition-colors hover:border-zinc-500 hover:text-zinc-50"
           >
             {hero.ctaV1}
+          </Link>
+          <Link
+            to="/#source"
+            className="inline-flex items-center justify-center gap-2 border border-zinc-700 bg-transparent px-6 py-3 font-mono text-xs font-medium uppercase tracking-widest text-zinc-200 transition-colors hover:border-zinc-500 hover:text-zinc-50"
+          >
+            {hero.ctaSource}
           </Link>
           <Link
             to="/#roadmap"

@@ -1,4 +1,4 @@
-import { useCallback, useId, useState } from 'react'
+import { useId, useState } from 'react'
 import { motion } from 'framer-motion'
 import { FaqAccordionItem } from '../components/faq/FaqAccordionItem'
 import { faqCategories } from '../data/faqData'
@@ -32,12 +32,11 @@ function ContactSection() {
 
           <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
             If your question is not covered above, you can reach out directly using the contact
-            details below. As the project develops, more structured communication and documentation
-            will be added.
+            details below. As documentation grows, more structured communication may be added here.
           </p>
 
           <p className="mt-3 text-sm text-zinc-600">
-            Common questions may be incorporated into this page over time as development progresses.
+            Common questions may be incorporated into this page over time as the project evolves.
           </p>
         </motion.div>
 
@@ -74,7 +73,7 @@ function ContactSection() {
             <div>
               <p className="text-xs leading-relaxed text-zinc-600">
                 For direct inquiries, email is the best contact method. Updates are also shared
-                publicly through X and the site as development progresses.
+                publicly through X and this site as work continues.
               </p>
             </div>
           </div>
@@ -108,7 +107,7 @@ export function FaqContactPage() {
               Frequently Asked Questions
             </h1>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-500 md:text-lg">
-              Answers to common questions about Trilogicon, its goals, and V1 development—organized
+              Answers to common questions about Trilogicon, its goals, and the V1 release—organized
               for clarity without unnecessary noise.
             </p>
           </motion.div>

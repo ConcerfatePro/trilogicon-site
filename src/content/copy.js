@@ -6,7 +6,7 @@ export const brand = {
   name: 'Trilogicon',
   ticker: 'TRIL',
   tagline: 'Simple, secure cryptocurrency network',
-  statusLine: 'In development',
+  statusLine: 'V1 live',
 }
 
 export const social = {
@@ -18,7 +18,7 @@ export const social = {
 export const waitlist = {
   title: 'Early Trilogicon Waitlist',
   subtitle:
-    'Share your email if you want occasional, low-noise updates as V1 development progresses. No spam, no token sale language — optional X handle for context only.',
+    'Share your email if you want occasional, low-noise project updates now that V1 is live and later work continues. No spam, no token sale language — optional X handle for context only.',
   emailLabel: 'Email address',
   emailPlaceholder: 'you@example.com',
   xLabel: 'X handle (optional)',
@@ -35,13 +35,14 @@ export const waitlist = {
 }
 
 export const hero = {
-  headline: 'Native chain. Account model. Built for clarity.',
+  headline: 'Native chain. Account model. V1 is live.',
   lead:
-    'Trilogicon is a from-scratch base-layer network with its own protocol rules and node software. V1 focuses on sound transfers, strict validation, and a foundation you can reason about — not hype.',
+    'Trilogicon v1 is now live. The first release is focused on the fundamentals of secure value transfer: signed transfers, balance tracking, nonce-based replay protection, block validation, and multi-node synchronization.',
   secondary:
-    'TRIL is the native asset. The ledger is account-based (balance + nonce per account). No token on another chain; this is intentional protocol work.',
+    'TRIL is the native asset. The ledger is account-based (balance + nonce per account). Built as a simple, secure, and understandable foundation first — no token on another chain; this is intentional protocol work.',
   ctaVision: 'Read the vision',
   ctaV1: 'Explore V1',
+  ctaSource: 'View source',
   ctaRoadmap: 'View roadmap',
 }
 
@@ -118,7 +119,7 @@ export const builder = {
   paragraphs: [
     'I am building Trilogicon as a long-term protocol effort: a native chain with clear rules, careful validation, and software that can be reasoned about — not another rebranded stack or hype-driven roadmap.',
     'V1 is intentionally narrow. I would rather establish correct fundamentals — signatures, state, blocks, sync — than layer on features that make the system harder to audit or trust.',
-    'What you see on this site is the real stage of the project: active design and implementation work, with no claim of a finished network or manufactured metrics. If that honesty resonates, you are exactly the kind of reader this project is for.',
+    'V1 is intentionally narrow: the goal is a small, auditable surface area you can read in the public repositories. Later versions can build on that only if the base stays understandable and secure. If that discipline resonates, you are exactly the kind of reader this project is for.',
   ],
   signOff: 'Trilogicon Dev',
   signRole: 'Project lead',
@@ -126,9 +127,9 @@ export const builder = {
 
 export const v1 = {
   title: 'Trilogicon V1',
-  subtitle: 'Intentionally scoped. Fundamentals first.',
+  subtitle: 'Released. Intentionally scoped — fundamentals first.',
   intro:
-    'V1 establishes a simple, secure digital value-transfer network. It does a small set of things deliberately well so later versions can build on something solid.',
+    'The first release delivers a simple, secure digital value-transfer network: signed transfers, balance tracking, nonce-based replay protection, block validation, and multi-node synchronization. It does a small set of things deliberately well so later versions can build on something solid.',
   includesTitle: 'In V1',
   includes: [
     'Account creation',
@@ -155,13 +156,26 @@ export const v1 = {
     'Bloated ecosystem layers',
   ],
   scopeNote:
-    'Limited scope is a strength: disciplined protocol design before optional complexity.',
+    'Limited scope is a strength: disciplined protocol design before optional complexity. Built as a simple, secure, and understandable foundation first.',
+}
+
+export const source = {
+  kicker: 'Open source',
+  title: 'Public repositories',
+  paragraphs: [
+    'The repositories are public for anyone who wants to inspect the code and follow development.',
+  ],
+  coreLabel: 'Core implementation',
+  coreDescription:
+    'Protocol rules, validation, and node software — start here if you want to read or run the implementation.',
+  coreUrl: 'https://github.com/ConcerfatePro/trilogicon-core',
+  coreLinkLabel: 'trilogicon-core on GitHub',
 }
 
 export const architecture = {
   title: 'System overview',
   subtitle:
-    'High-level structure of the node and protocol — not a full specification. Details evolve as V1 solidifies.',
+    'High-level structure of the node and protocol — not a full specification. Details evolve as the project advances beyond the V1 baseline.',
   modules: [
     {
       id: 'account',
@@ -204,32 +218,32 @@ export const architecture = {
 }
 
 export const status = {
-  title: 'Development status',
-  subtitle: 'Early, active, honest.',
+  title: 'Project status',
+  subtitle: 'V1 shipped. Work continues on documentation, hardening, and later versions.',
   items: [
     {
-      title: 'V1 architecture',
-      body: 'In progress — structure and protocol boundaries are being defined with security-first discipline.',
+      title: 'V1 release',
+      body: 'The first version is live in source: secure value transfer, validation, and multi-node sync — scoped deliberately small so behavior stays traceable.',
     },
     {
-      title: 'Protocol design',
-      body: 'Active — transaction and block shapes, validation rules, and state transitions are central focus areas.',
+      title: 'Specification & documentation',
+      body: 'Evolving — written material and code comments will grow as operators and contributors need clearer reference.',
     },
     {
       title: 'Roadmap',
-      body: 'Defined at a high level — multi-version evolution is planned; nothing is rushed to “mainnet theater.”',
+      body: 'Defined at a high level — multi-version evolution is planned; each step stays subordinate to security and clarity.',
     },
     {
-      title: 'Documentation',
-      body: 'Evolving — public material will grow as the specification stabilizes.',
+      title: 'Hardening & follow-on work',
+      body: 'Ongoing — networking, sync edge cases, and operational tooling are natural next focuses after a minimal correct core.',
     },
     {
-      title: 'Implementation',
-      body: 'Rust node software is in progress / planned alongside the written protocol.',
+      title: 'Transparency',
+      body: 'No public sale narrative and no fabricated metrics on this page. Inspect the repositories for what is actually implemented.',
     },
   ],
   disclaimer:
-    'There is no mainnet claim, no public sale narrative, and no fabricated metrics on this page. What you see reflects real, in-flight engineering.',
+    'This site summarizes intent and scope; authoritative detail is in the public code and any published specs. Always verify behavior against the implementation you run.',
 }
 
 export const roadmap = {
@@ -239,7 +253,7 @@ export const roadmap = {
     {
       id: 'V1',
       title: 'V1',
-      body: 'Simple, secure value transfer; accounts; signed transfers; validation; nonce-based replay protection; multi-node foundation.',
+      body: 'Shipped: simple, secure value transfer; accounts; signed transfers; validation; nonce-based replay protection; multi-node synchronization.',
     },
     {
       id: 'V2',
@@ -293,6 +307,7 @@ export const footer = {
     { label: 'Vision', href: '/#vision' },
     { label: 'Builder', href: '/#builder' },
     { label: 'V1 scope', href: '/#v1' },
+    { label: 'Source', href: '/#source' },
     { label: 'Architecture', href: '/#architecture' },
     { label: 'Roadmap', href: '/#roadmap' },
     { label: 'Status', href: '/#status' },
@@ -300,7 +315,11 @@ export const footer = {
     { label: 'FAQ', href: '/faq' },
     { label: 'Support', href: '/support' },
     { label: 'Contact', href: '/faq#contact' },
-    { label: 'GitHub', href: '#', placeholder: true },
+    {
+      label: 'GitHub',
+      href: 'https://github.com/ConcerfatePro/trilogicon-core',
+      external: true,
+    },
   ],
 }
 
@@ -309,6 +328,7 @@ export const nav = {
     { label: 'Vision', href: '/#vision' },
     { label: 'Builder', href: '/#builder' },
     { label: 'V1', href: '/#v1' },
+    { label: 'Source', href: '/#source' },
     { label: 'Architecture', href: '/#architecture' },
     { label: 'Roadmap', href: '/#roadmap' },
     { label: 'Status', href: '/#status' },

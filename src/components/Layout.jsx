@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { Navbar } from './Navbar'
+import { SiteBackdrop } from './SiteBackdrop'
 import { FooterSection } from '../sections/FooterSection'
 
 export function Layout() {
@@ -21,10 +22,13 @@ export function Layout() {
   }, [location.pathname, location.hash])
 
   return (
-    <div className="min-h-svh bg-tril-black text-zinc-100 antialiased">
+    <div className="relative isolate min-h-svh bg-tril-black text-zinc-100 antialiased">
+      <SiteBackdrop />
       <Navbar />
-      <Outlet />
-      <FooterSection />
+      <div className="relative z-[1]">
+        <Outlet />
+        <FooterSection />
+      </div>
     </div>
   )
 }
