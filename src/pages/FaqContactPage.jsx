@@ -3,9 +3,6 @@ import { motion } from 'framer-motion'
 import { FaqAccordionItem } from '../components/faq/FaqAccordionItem'
 import { faqCategories } from '../data/faqData'
 
-const MESSAGE_MAX = 4000
-const MESSAGE_MIN = 8
-
 function ContactSection() {
   const sectionId = useId()
 
@@ -13,7 +10,7 @@ function ContactSection() {
     <section
       id="contact"
       aria-labelledby={`${sectionId}-contact-heading`}
-      className="border-t border-zinc-800 bg-tril-black"
+      className="border-t border-zinc-200 bg-zinc-50 dark:border-zinc-800 dark:bg-tril-black"
     >
       <div className="mx-auto max-w-3xl px-5 py-20 md:px-8 md:py-28">
         <motion.div
@@ -25,17 +22,17 @@ function ContactSection() {
 
           <h2
             id={`${sectionId}-contact-heading`}
-            className="mt-3 text-2xl font-semibold tracking-tight text-zinc-100 md:text-3xl"
+            className="mt-3 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-3xl"
           >
             Still have a question?
           </h2>
 
-          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-500 md:text-base">
+          <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-500 md:text-base">
             If your question is not covered above, you can reach out directly using the contact
             details below. As documentation grows, more structured communication may be added here.
           </p>
 
-          <p className="mt-3 text-sm text-zinc-600">
+          <p className="mt-3 text-sm text-zinc-600 dark:text-zinc-600">
             Common questions may be incorporated into this page over time as the project evolves.
           </p>
         </motion.div>
@@ -45,33 +42,33 @@ function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.35 }}
-          className="mt-12 rounded border border-zinc-800 bg-tril-surface/40 p-6 md:p-10"
+          className="mt-12 rounded border border-zinc-200 bg-white/80 p-6 dark:border-zinc-800 dark:bg-tril-surface/40 md:p-10"
         >
           <div className="space-y-6">
-            <div className="border-b border-zinc-800 pb-5">
+            <div className="border-b border-zinc-200 pb-5 dark:border-zinc-800">
               <p className="font-mono text-xs uppercase tracking-widest text-zinc-500">Email</p>
               <a
                 href="mailto:contact@trilogicon.com"
-                className="mt-2 inline-block text-sm text-zinc-100 transition-colors hover:text-white md:text-base"
+                className="mt-2 inline-block text-sm text-zinc-900 transition-colors hover:text-zinc-700 dark:text-zinc-100 dark:hover:text-white md:text-base"
               >
                 contact@trilogicon.com
               </a>
             </div>
 
-            <div className="border-b border-zinc-800 pb-5">
+            <div className="border-b border-zinc-200 pb-5 dark:border-zinc-800">
               <p className="font-mono text-xs uppercase tracking-widest text-zinc-500">X</p>
               <a
                 href="https://x.com/trilogicon/"
                 target="_blank"
                 rel="noreferrer"
-                className="mt-2 inline-block text-sm text-zinc-100 transition-colors hover:text-white md:text-base"
+                className="mt-2 inline-block text-sm text-zinc-900 transition-colors hover:text-zinc-700 dark:text-zinc-100 dark:hover:text-white md:text-base"
               >
                 x.com/trilogicon
               </a>
             </div>
 
             <div>
-              <p className="text-xs leading-relaxed text-zinc-600">
+              <p className="text-xs leading-relaxed text-zinc-600 dark:text-zinc-600">
                 For direct inquiries, email is the best contact method. Updates are also shared
                 publicly through X and this site as work continues.
               </p>
@@ -83,7 +80,6 @@ function ContactSection() {
   )
 }
 
-
 export function FaqContactPage() {
   const [openId, setOpenId] = useState(null)
 
@@ -92,8 +88,8 @@ export function FaqContactPage() {
   }
 
   return (
-    <div className="min-h-svh bg-tril-black pt-24 pb-0">
-      <header className="border-b border-zinc-800/90">
+    <div className="min-h-svh bg-zinc-50 pt-24 pb-0 dark:bg-tril-black">
+      <header className="border-b border-zinc-200/90 dark:border-zinc-800/90">
         <div className="mx-auto max-w-3xl px-5 py-16 md:px-8 md:py-24">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
@@ -103,10 +99,10 @@ export function FaqContactPage() {
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
               Trilogicon · TRIL
             </p>
-            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-100 md:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
               Frequently Asked Questions
             </h1>
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-500 md:text-lg">
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-600 dark:text-zinc-500 md:text-lg">
               Answers to common questions about Trilogicon, its goals, and the V1 release—organized
               for clarity without unnecessary noise.
             </p>
@@ -125,18 +121,18 @@ export function FaqContactPage() {
               transition={{ duration: 0.35, delay: catIndex * 0.03 }}
               aria-labelledby={`faq-cat-${cat.id}`}
             >
-              <div className="mb-6 flex items-end justify-between gap-4 border-b border-zinc-800 pb-4">
+              <div className="mb-6 flex items-end justify-between gap-4 border-b border-zinc-200 pb-4 dark:border-zinc-800">
                 <h2
                   id={`faq-cat-${cat.id}`}
-                  className="font-mono text-sm font-medium uppercase tracking-[0.18em] text-zinc-300"
+                  className="font-mono text-sm font-medium uppercase tracking-[0.18em] text-zinc-700 dark:text-zinc-300"
                 >
                   {cat.title}
                 </h2>
-                <span className="font-mono text-[10px] text-zinc-600" aria-hidden>
+                <span className="font-mono text-[10px] text-zinc-500 dark:text-zinc-600" aria-hidden>
                   {String(catIndex + 1).padStart(2, '0')}
                 </span>
               </div>
-              <div className="rounded border border-zinc-800 bg-tril-surface/30 px-1 md:px-4">
+              <div className="rounded border border-zinc-200 bg-white/60 px-1 dark:border-zinc-800 dark:bg-tril-surface/30 md:px-4">
                 {cat.items.map((item) => (
                   <FaqAccordionItem
                     key={item.id}

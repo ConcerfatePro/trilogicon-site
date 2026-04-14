@@ -12,10 +12,10 @@ export function WhatIsSection() {
         transition={{ duration: 0.4 }}
       >
         <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">Vision</p>
-        <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-zinc-100 md:text-4xl">
+        <h2 className="mt-3 max-w-2xl text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-4xl">
           {whatIs.title}
         </h2>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-400 md:text-lg">
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-lg">
           {whatIs.intro}
         </p>
       </motion.div>
@@ -28,10 +28,12 @@ export function WhatIsSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-30px' }}
             transition={{ duration: 0.35, delay: i * 0.06 }}
-            className="border border-zinc-800 bg-tril-elevated p-6 md:p-8"
+            className="border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-tril-elevated md:p-8"
           >
-            <h3 className="font-mono text-sm font-medium text-zinc-200">{item.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-zinc-500">{item.body}</p>
+            <h3 className="font-mono text-sm font-medium text-zinc-800 dark:text-zinc-200">
+              {item.title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-500">{item.body}</p>
           </motion.li>
         ))}
       </ul>
@@ -41,7 +43,7 @@ export function WhatIsSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.4, delay: 0.1 }}
-        className="mt-12 max-w-2xl border-l-2 border-zinc-600 pl-6 text-sm leading-relaxed text-zinc-500"
+        className="mt-12 max-w-2xl border-l-2 border-zinc-400 pl-6 text-sm leading-relaxed text-zinc-600 dark:border-zinc-600 dark:text-zinc-500"
       >
         {whatIs.closing}
       </motion.p>

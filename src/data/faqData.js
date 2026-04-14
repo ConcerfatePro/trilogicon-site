@@ -12,7 +12,7 @@ export const faqCategories = [
         id: 'gen-what',
         question: 'What is Trilogicon?',
         answer:
-          'Trilogicon is a simple, secure, user-focused cryptocurrency network being built from scratch. It is designed as a base-layer protocol with its own native asset and node software, emphasizing clear rules and dependable value transfer over feature overload or hype-driven design.',
+          'Trilogicon is a simple, secure, user-focused base-layer blockchain project: its own native asset (TRIL), protocol rules, and node software — not a token on another chain. The public motto is Simple. Secure. User-focused. The emphasis is clear rules and dependable value transfer over feature overload or hype-driven design.',
       },
       {
         id: 'gen-tril',
@@ -54,7 +54,7 @@ export const faqCategories = [
         id: 'v1-experimental',
         question: 'Is Trilogicon still experimental?',
         answer:
-          'V1 is released in public source as a narrow, fundamentals-first implementation. The project remains early in a long-term sense: hardening, documentation, and later versions are ongoing. “Experimental” can still apply to how you deploy or rely on any network — always verify behavior against the code you run.',
+          'V1 and V2 are complete in public source: a narrow chain core plus a major node hardening pass. The project remains long-term in outlook — documentation, later versions, and how you operate a network still deserve careful judgment. “Experimental” can still apply to deployment context; always verify behavior against the code you run.',
       },
       {
         id: 'v1-live',
@@ -85,6 +85,30 @@ export const faqCategories = [
         question: 'Why is simplicity important in early protocol design?',
         answer:
           'Complexity compounds quickly. Each additional subsystem increases the number of ways consensus, state, and networking can fail or diverge. Keeping the early design simple improves auditability, implementation confidence, and long-term maintainability.',
+      },
+    ],
+  },
+  {
+    id: 'v2',
+    title: 'V2 release',
+    items: [
+      {
+        id: 'v2-shipped',
+        question: 'What did Trilogicon V2 deliver?',
+        answer:
+          'V2 is a completed reliability phase for node software: formal wire v2 peer sessions (version, genesis commitment, advisory height), explicit linear catch-up sync with capped batches, decode-before-apply message handling, frame and response size limits, stronger on-disk block and pending-transaction persistence with fail-closed behavior, genesis binding per data directory, more resilient mempool handling, clearer separation between consensus rules and local hardening, and substantially stronger multi-node and recovery-oriented tests. A structured summary is on the site at /v2.',
+      },
+      {
+        id: 'v2-not',
+        question: 'What did V2 intentionally avoid?',
+        answer:
+          'V2 did not add smart contracts, staking redesign, DeFi, bridges, new token standards, privacy features, or a major consensus overhaul. It strengthened how nodes run together — it did not turn Trilogicon into a broader application platform.',
+      },
+      {
+        id: 'v2-motto',
+        question: 'How does V2 relate to the project motto?',
+        answer:
+          'The public motto is Simple. Secure. User-focused. V2 advances that by making distributed behavior more predictable and safer under real conditions — without expanding protocol scope for marketing reasons.',
       },
     ],
   },
@@ -136,9 +160,9 @@ export const faqCategories = [
       },
       {
         id: 'tech-evolve',
-        question: 'How will the project evolve after V1?',
+        question: 'How does the project evolve across versions?',
         answer:
-          'Later versions are expected to improve networking, synchronization, resilience, consensus design, and performance now that V1 establishes a correct baseline. Broader features would only be considered cautiously and when justified by maturity and clarity.',
+          'V1 established the value-transfer core. V2 shipped the locked reliability work: networking, sync, persistence, and testing under multi-node conditions. Later versions (for example V3) may address consensus, performance, and more robust decentralized operation — only when justified and without sacrificing clarity. Broader features would be considered cautiously after the base is genuinely strong.',
       },
       {
         id: 'tech-longterm',

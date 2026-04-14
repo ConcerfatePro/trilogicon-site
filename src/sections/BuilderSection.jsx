@@ -15,7 +15,7 @@ export function BuilderSection() {
           <p className="font-mono text-xs uppercase tracking-[0.2em] text-zinc-500">
             {builder.kicker}
           </p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-100 md:text-4xl">
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-4xl">
             {builder.title}
           </h2>
         </motion.div>
@@ -25,15 +25,15 @@ export function BuilderSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.45, delay: 0.06 }}
-          className="mt-10 border-l-2 border-zinc-600 pl-6 md:pl-8"
+          className="mt-10 border-l-2 border-zinc-400 pl-6 dark:border-zinc-600 md:pl-8"
         >
-          <div className="space-y-5 text-base leading-relaxed text-zinc-400">
+          <div className="space-y-5 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
             {builder.paragraphs.map((p, i) => (
               <p key={i}>{p}</p>
             ))}
           </div>
-          <footer className="mt-10 border-t border-zinc-800 pt-8">
-            <p className="font-mono text-sm text-zinc-200">— {builder.signOff}</p>
+          <footer className="mt-10 border-t border-zinc-200 pt-8 dark:border-zinc-800">
+            <p className="font-mono text-sm text-zinc-800 dark:text-zinc-200">— {builder.signOff}</p>
             {builder.signRole ? (
               <p className="mt-1 font-mono text-xs text-zinc-500">{builder.signRole}</p>
             ) : null}
