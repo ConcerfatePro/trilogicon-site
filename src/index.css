@@ -50,6 +50,37 @@ body {
   text-decoration-color: var(--color-tril-accent);
 }
 
+.doc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.doc-list__link {
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: rgb(82 82 91);
+  text-decoration: underline;
+  text-decoration-color: rgb(212 212 216);
+  text-underline-offset: 3px;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+
+.doc-list__link:hover {
+  color: rgb(24 24 27);
+  text-decoration-color: rgb(161 161 170);
+}
+
+.dark .doc-list__link {
+  color: rgb(161 161 170);
+  text-decoration-color: rgb(63 63 70);
+}
+
+.dark .doc-list__link:hover {
+  color: rgb(244 244 245);
+  text-decoration-color: rgb(113 113 122);
+}
+
 .dark .home-link-primary {
   color: rgb(251 191 36);
   text-decoration-color: rgb(251 191 36 / 0.35);
@@ -59,25 +90,11 @@ body {
   text-decoration-color: rgb(251 191 36);
 }
 
-.v2-grid-overlay {
-  background-image:
-    linear-gradient(rgb(0 0 0 / 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(0 0 0 / 0.04) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.dark .v2-grid-overlay {
-  background-image:
-    linear-gradient(rgb(255 255 255 / 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgb(255 255 255 / 0.06) 1px, transparent 1px);
-}
-
 /* Section anchors clear fixed nav */
 section[id] {
   scroll-margin-top: 5.5rem;
 }
 
-/* V2 page: fixed header + sticky in-page nav */
 .v2-page section[id] {
-  scroll-margin-top: 7.75rem;
+  scroll-margin-top: 6.5rem;
 }

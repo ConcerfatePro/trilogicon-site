@@ -132,7 +132,7 @@ export function WaitlistSection() {
   }
 
   return (
-    <PageSection id="updates">
+    <PageSection id="updates" className="border-t border-zinc-200/80 dark:border-zinc-800/60">
       <h2 className="text-xl font-medium text-zinc-900 dark:text-zinc-100">{waitlistCopy.title}</h2>
       <p className="mt-2 text-[15px] text-zinc-600 dark:text-zinc-400">{waitlistCopy.subtitle}</p>
 

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { docsHref, home, sourceUrl } from '../content/copy'
+import { home, sourceUrl } from '../content/copy'
 
 const { hero } = home
 
@@ -14,9 +14,9 @@ export function HeroSection() {
           {hero.subheading}
         </p>
         <div className="mt-12 flex flex-wrap items-center gap-x-7 gap-y-2 text-[15px]">
-          <Link to={docsHref} className="home-link-primary underline underline-offset-4">
+          <a href="/#docs" className="home-link-primary underline underline-offset-4">
             {hero.ctaDocs}
-          </Link>
+          </a>
           <a
             href={sourceUrl}
             target="_blank"

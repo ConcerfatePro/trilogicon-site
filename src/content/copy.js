@@ -13,9 +13,9 @@ export const social = {
 }
 
 export const waitlist = {
-  title: 'Want occasional updates?',
+  title: 'Follow updates',
   subtitle:
-    'Low-noise notes when testnet tooling, explorer work, or public testing moves forward.',
+    'Occasional notes when testnet tooling, explorer work, or public testing moves forward.',
   emailLabel: 'Email',
   emailPlaceholder: 'you@example.com',
   xLabel: 'X handle (optional)',
@@ -42,28 +42,37 @@ export const home = {
     body:
       'Trilogicon is an account-based blockchain for signed value transfer. It uses accounts, balances, nonces, blocks, and deterministic validation so nodes can replay the chain from the same genesis.',
   },
+  docs: {
+    title: 'Documentation',
+    intro:
+      'Most of the project detail lives in the docs. Start with the overview, then read the V2 release notes if you want to see what is already finished.',
+    startHere: [
+      { label: 'V2 overview', href: '/v2#overview' },
+      { label: 'V2 release notes', href: '/v2' },
+      { label: 'V2 scope and exclusions', href: '/v2#not-became' },
+      { label: 'Summary', href: '/v2#summary' },
+      { label: 'V1 and V2 status on this page', href: '/#state' },
+    ],
+    reference: [
+      { label: 'Wire protocol', href: '/v2#wire-protocol' },
+      { label: 'Sync', href: '/v2#sync' },
+      { label: 'Decode and message handling', href: '/v2#parsing' },
+      { label: 'Block storage', href: '/v2#block-storage' },
+      { label: 'Core repository README', href: sourceUrl, external: true },
+    ],
+  },
   currentState: {
     title: 'Current state',
     items: [
       { label: 'V1', detail: 'protocol core complete' },
       { label: 'V2', detail: 'node hardening complete' },
-      { label: 'Next', detail: 'testnet tooling and stronger network behavior' },
+      { label: 'Next', detail: 'testnet tooling and network behavior' },
     ],
   },
-  baseLayer: {
-    title: 'Built from the base layer',
-    body:
-      'The project is starting with the parts a chain cannot fake: signed transactions, replay protection, block validation, persistence, and sync. More can come later. The base layer has to be understandable first.',
-  },
-  next: {
-    title: 'What comes next?',
-    body:
-      'Next work is focused on branch selection, block indexing, reorg checks, replay testing, faucet tooling, and an explorer. Wallet work comes later.',
-  },
-  tril: {
-    title: 'TRIL',
-    body: 'TRIL is the native unit of Trilogicon.',
-    optional: 'No token sale language. No meme branding.',
+  source: {
+    title: 'Source code',
+    body: 'The Rust implementation is the main project. The site is only a front door.',
+    cta: 'View GitHub',
   },
   faq: [
     {
@@ -78,24 +87,18 @@ export const home = {
     {
       question: 'Why Rust?',
       answer:
-        'Rust is a good fit for state, signatures, blocks, networking, and persistence.',
+        'Rust fits the kind of code Trilogicon needs: state, signatures, blocks, networking, and persistence.',
     },
     {
-      question: 'Is this a token sale?',
-      answer: 'No.',
-    },
-    {
-      question: 'Where is the code?',
-      answer: null,
-      linkLabel: 'GitHub',
-      linkHref: sourceUrl,
+      question: 'Where should I start?',
+      answer: 'Read the docs first, then check the source if you want the implementation details.',
     },
   ],
 }
 
 export const nav = {
   links: [
-    { label: 'Docs', href: docsHref },
+    { label: 'Docs', href: '/#docs' },
     { label: 'Source', href: sourceUrl, external: true },
     { label: 'Updates', href: '/#updates' },
   ],
@@ -104,7 +107,7 @@ export const nav = {
 export const footer = {
   note: `${brand.name} · ${brand.ticker}`,
   links: [
-    { label: 'Docs', href: docsHref },
+    { label: 'Docs', href: '/#docs' },
     { label: 'Source', href: sourceUrl, external: true },
     { label: 'Updates', href: '/#updates' },
   ],

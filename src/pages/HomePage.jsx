@@ -1,9 +1,8 @@
 import { HeroSection } from '../sections/HeroSection'
 import { WhatIsSection } from '../sections/WhatIsSection'
+import { DocumentationSection } from '../sections/DocumentationSection'
 import { CurrentStateSection } from '../sections/CurrentStateSection'
-import { BaseLayerSection } from '../sections/BaseLayerSection'
-import { NextSection } from '../sections/NextSection'
-import { TrilSection } from '../sections/TrilSection'
+import { SourceSection } from '../sections/SourceSection'
 import { WaitlistSection } from '../sections/WaitlistSection'
 import { HomeFaqSection } from '../sections/HomeFaqSection'
 
@@ -12,10 +11,9 @@ export function HomePage() {
     <main>
       <HeroSection />
       <WhatIsSection />
+      <DocumentationSection />
       <CurrentStateSection />
-      <BaseLayerSection />
-      <NextSection />
-      <TrilSection />
+      <SourceSection />
       <WaitlistSection />
       <HomeFaqSection />
     </main>

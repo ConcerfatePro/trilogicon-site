@@ -1,86 +1,45 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowUpRight } from 'lucide-react'
 import { v2Page as copy } from '../content/copy'
 
 const DOC_TITLE_DEFAULT = 'Trilogicon — TRIL'
 
-function SectionRule() {
-  return <div className="h-px w-full bg-zinc-200 dark:bg-zinc-700" aria-hidden />
-}
-
-function SectionHeading({ kicker, title, intro, titleId }) {
+function DocList({ items, className = '' }) {
   return (
-    <div className="max-w-3xl">
-      <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-zinc-500">
-        {kicker}
-      </p>
-      <h2
-        id={titleId}
-        className="mt-3 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-3xl"
-      >
-        {title}
-      </h2>
-      {intro ? (
-        <p className="mt-5 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">{intro}</p>
-      ) : null}
-    </div>
+    <ul className={`mt-4 max-w-2xl space-y-2 text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400 ${className}`}>
+      {items.map((line) => (
+        <li key={line} className="pl-4 [text-indent:-1rem]">
+          <span className="mr-2 text-zinc-400 dark:text-zinc-500" aria-hidden>
+            –
+          </span>
+          {line}
+        </li>
+      ))}
+    </ul>
   )
 }
 
 function ShippedSection({ section }) {
   return (
-    <section id={section.id} aria-labelledby={`${section.id}-heading`}>
-      <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-zinc-500">
-        Shipped · {section.navLabel}
-      </p>
+    <section id={section.id} aria-labelledby={`${section.id}-heading`} className="scroll-mt-24">
       <h2
         id={`${section.id}-heading`}
-        className="mt-3 max-w-3xl text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-3xl"
+        className="text-xl font-medium text-zinc-900 dark:text-zinc-100 md:text-2xl"
       >
         {section.title}
       </h2>
-      <p className="mt-5 max-w-3xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-lg">
+      <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
         {section.intro}
       </p>
 
-      <div className="mt-10 grid gap-10 lg:grid-cols-2 lg:gap-12">
-        <div className="border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-tril-elevated md:p-8">
-          <h3 className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-500">
-            What changed
-          </h3>
-          <ul className="mt-5 space-y-3 border-t border-zinc-100 pt-5 dark:border-zinc-800" role="list">
-            {section.changed.map((line) => (
-              <li
-                key={line}
-                className="flex gap-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-[15px]"
-              >
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-zinc-900 dark:bg-zinc-100" aria-hidden />
-                <span>{line}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-tril-elevated md:p-8">
-          <h3 className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-500">
-            Why that matters
-          </h3>
-          <ul className="mt-5 space-y-3 border-t border-zinc-100 pt-5 dark:border-zinc-800" role="list">
-            {section.matters.map((line) => (
-              <li
-                key={line}
-                className="flex gap-3 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-[15px]"
-              >
-                <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-zinc-900 dark:bg-zinc-100" aria-hidden />
-                <span>{line}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <h3 className="mt-8 text-sm font-medium text-zinc-800 dark:text-zinc-200">What changed</h3>
+      <DocList items={section.changed} />
+
+      <h3 className="mt-8 text-sm font-medium text-zinc-800 dark:text-zinc-200">Why that matters</h3>
+      <DocList items={section.matters} />
 
       {section.compendium ? (
-        <p className="mt-8 max-w-3xl border-l-2 border-zinc-900 pl-5 text-sm leading-relaxed text-zinc-600 dark:border-zinc-200 dark:text-zinc-400 md:text-[15px]">
+        <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-zinc-500 dark:text-zinc-500">
           {section.compendium}
         </p>
       ) : null}
@@ -98,54 +57,31 @@ export function V2Page() {
   }, [])
 
   return (
-    <main
-      aria-labelledby="v2-page-title"
-      className="v2-page bg-zinc-50 pb-24 pt-24 dark:bg-tril-black md:pb-32 md:pt-28"
-    >
-      <div className="v2-grid-overlay pointer-events-none fixed inset-0 -z-10 opacity-[0.45] dark:opacity-[0.12]" aria-hidden />
-      <div className="relative mx-auto max-w-6xl px-5 md:px-8">
-        <header
-          id="top"
-          className="border-b border-zinc-900 pb-12 dark:border-zinc-100 md:pb-16"
-        >
-          <div className="max-w-4xl">
-            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-zinc-500">
-              {copy.heroKicker}
-            </p>
-            <div className="mt-6 flex flex-wrap items-baseline gap-x-4 gap-y-2">
-              <h1
-                id="v2-page-title"
-                className="text-4xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-5xl lg:text-[3.25rem] lg:leading-[1.08]"
-              >
-                {copy.heroTitle}
-              </h1>
-              <span className="inline-flex border border-zinc-900 px-2 py-1 font-mono text-[10px] font-medium uppercase tracking-widest text-zinc-900 dark:border-zinc-100 dark:text-zinc-100">
-                {copy.heroBadge}
-              </span>
-            </div>
-            <p className="mt-8 max-w-3xl text-lg leading-relaxed text-zinc-700 dark:text-zinc-300 md:text-xl">
-              {copy.heroLead}
-            </p>
-            <p className="mt-5 max-w-3xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
-              {copy.heroSub}
-            </p>
-          </div>
-          <dl className="mt-10 grid gap-4 md:grid-cols-3">
+    <main aria-labelledby="v2-page-title" className="v2-page pb-24 pt-24 md:pb-32 md:pt-28">
+      <div className="mx-auto max-w-2xl px-5 md:px-8">
+        <header id="top" className="border-b border-zinc-200 pb-12 dark:border-zinc-800 md:pb-14">
+          <p className="text-sm text-zinc-500">{copy.heroKicker}</p>
+          <h1
+            id="v2-page-title"
+            className="mt-3 text-3xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-4xl"
+          >
+            {copy.heroTitle}
+            <span className="ml-2 text-base font-normal text-zinc-500">({copy.heroBadge})</span>
+          </h1>
+          <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+            {copy.heroLead}
+          </p>
+          <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-zinc-500 dark:text-zinc-500">
+            {copy.heroSub}
+          </p>
+
+          <dl className="mt-10 space-y-5 border-t border-zinc-200 pt-8 dark:border-zinc-800">
             {copy.summaryCards.map((card) => (
-              <div
-                key={card.label}
-                className="border border-zinc-200 bg-white p-5 dark:border-zinc-800 dark:bg-tril-elevated md:p-6"
-              >
-                <dt className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-500">
-                  {card.label}
-                </dt>
-                <dd className="mt-3">
-                  <p className="text-sm font-medium tracking-tight text-zinc-900 dark:text-zinc-100 md:text-[15px]">
-                    {card.title}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-                    {card.body}
-                  </p>
+              <div key={card.label}>
+                <dt className="text-sm font-medium text-zinc-900 dark:text-zinc-100">{card.label}</dt>
+                <dd className="mt-1 text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  <span className="text-zinc-800 dark:text-zinc-300">{card.title}. </span>
+                  {card.body}
                 </dd>
               </div>
             ))}
@@ -153,187 +89,134 @@ export function V2Page() {
         </header>
 
         <nav
-          className="sticky top-16 z-30 -mx-5 mb-14 border-b border-zinc-200 bg-zinc-50/95 px-5 py-3 backdrop-blur-sm dark:border-zinc-800 dark:bg-tril-black/95 md:-mx-8 md:px-8"
+          className="sticky top-14 z-30 -mx-5 border-b border-zinc-200/80 bg-zinc-50/95 px-5 py-3 backdrop-blur-sm dark:border-zinc-800/80 dark:bg-tril-black/95 md:-mx-8 md:px-8"
           aria-label="On this page"
         >
-          <div className="overflow-x-auto pb-1">
-            <ul className="flex min-w-max gap-x-5 gap-y-2 md:gap-x-6">
-              {copy.anchorNav.map((a) => (
-                <li key={a.id}>
-                  <a
-                    href={`#${a.id}`}
-                    className="font-mono text-[10px] uppercase tracking-[0.18em] text-zinc-500 transition-colors hover:text-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-800 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-50 dark:hover:text-zinc-100 dark:focus-visible:ring-zinc-400 dark:focus-visible:ring-offset-tril-black"
-                  >
-                    {a.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-zinc-500">
+            {copy.anchorNav.map((a) => (
+              <li key={a.id}>
+                <a
+                  href={`#${a.id}`}
+                  className="hover:text-zinc-900 dark:hover:text-zinc-200"
+                >
+                  {a.label}
+                </a>
+              </li>
+            ))}
+          </ul>
         </nav>
 
-        <div className="space-y-20 md:space-y-28">
-          <section id="overview" aria-labelledby="overview-heading">
-            <SectionHeading
-              kicker="Overview"
-              title={copy.overviewTitle}
-              intro={copy.overviewIntro}
-              titleId="overview-heading"
-            />
-            <div className="mt-10 grid gap-6 lg:grid-cols-3">
+        <div className="space-y-16 pt-12 md:space-y-20">
+          <section id="overview" aria-labelledby="overview-heading" className="scroll-mt-24">
+            <h2
+              id="overview-heading"
+              className="text-xl font-medium text-zinc-900 dark:text-zinc-100 md:text-2xl"
+            >
+              {copy.overviewTitle}
+            </h2>
+            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+              {copy.overviewIntro}
+            </p>
+            <dl className="mt-8 space-y-6">
               {copy.overviewCards.map((card) => (
-                <article
-                  key={card.label}
-                  className="border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-tril-elevated md:p-7"
-                >
-                  <p className="font-mono text-[10px] font-medium uppercase tracking-[0.2em] text-zinc-500">
-                    {card.label}
-                  </p>
-                  <h3 className="mt-3 text-lg font-medium tracking-tight text-zinc-900 dark:text-zinc-100">
-                    {card.title}
-                  </h3>
-                  <p className="mt-4 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-[15px]">
+                <div key={card.label}>
+                  <dt className="text-sm font-medium text-zinc-900 dark:text-zinc-100">{card.label}</dt>
+                  <dd className="mt-1.5 text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+                    <span className="block text-zinc-800 dark:text-zinc-300">{card.title}</span>
                     {card.body}
-                  </p>
-                </article>
+                  </dd>
+                </div>
               ))}
-            </div>
+            </dl>
           </section>
-
-          <SectionRule />
 
           {copy.shippedSections.map((section) => (
             <ShippedSection key={section.id} section={section} />
           ))}
 
-          <SectionRule />
-
-          <section id="not-became" aria-labelledby="not-became-heading">
+          <section id="not-became" aria-labelledby="not-became-heading" className="scroll-mt-24">
             <h2
               id="not-became-heading"
-              className="max-w-3xl text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-3xl"
+              className="text-xl font-medium text-zinc-900 dark:text-zinc-100 md:text-2xl"
             >
               {copy.notBecameTitle}
             </h2>
-            <p className="mt-5 max-w-3xl text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
+            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
               {copy.notBecameIntro}
             </p>
-            <ul
-              className="mt-8 max-w-2xl space-y-3 border-l-2 border-zinc-900 pl-5 dark:border-zinc-200"
-              role="list"
-            >
-              {copy.notBecameFocus.map((line) => (
-                <li
-                  key={line}
-                  className="text-sm font-medium text-zinc-800 dark:text-zinc-200 md:text-[15px]"
-                >
-                  {line}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-8 max-w-3xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+            <DocList items={copy.notBecameFocus} className="mt-4" />
+            <p className="mt-6 max-w-2xl text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
               {copy.notBecameClosing}
             </p>
 
-            <div className="mt-14">
-              <h3 className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-zinc-500">
-                {copy.outScopeTitle}
-              </h3>
-              <p className="mt-3 max-w-3xl text-base text-zinc-600 dark:text-zinc-400">
-                {copy.outScopeIntro}
-              </p>
-              <div className="mt-8 border border-dashed border-zinc-400 bg-zinc-50/80 p-6 dark:border-zinc-600 dark:bg-tril-elevated/60 md:p-10">
-                <ul className="grid gap-3 sm:grid-cols-2 md:gap-x-10 md:gap-y-3" role="list">
-                  {copy.outScopeItems.map((item) => (
-                    <li key={item} className="flex gap-3 text-sm leading-snug text-zinc-600 dark:text-zinc-400">
-                      <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-zinc-900 dark:bg-zinc-100" aria-hidden />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+            <h3 className="mt-10 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+              {copy.outScopeTitle}
+            </h3>
+            <p className="mt-2 max-w-2xl text-[15px] text-zinc-600 dark:text-zinc-400">
+              {copy.outScopeIntro}
+            </p>
+            <DocList items={copy.outScopeItems} className="mt-3 columns-1 sm:columns-2 sm:gap-x-8" />
           </section>
 
-          <section id="summary" aria-labelledby="summary-heading">
-            <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-zinc-500">
-              Synthesis
-            </p>
+          <section id="summary" aria-labelledby="summary-heading" className="scroll-mt-24">
             <h2
               id="summary-heading"
-              className="mt-3 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-3xl"
+              className="text-xl font-medium text-zinc-900 dark:text-zinc-100 md:text-2xl"
             >
               {copy.summaryTitle}
             </h2>
-            <div className="mt-8 max-w-3xl space-y-6 border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-tril-elevated md:p-10">
+            <div className="mt-4 max-w-2xl space-y-4">
               {copy.summaryParagraphs.map((p, i) => (
-                <p
-                  key={i}
-                  className="text-base leading-relaxed text-zinc-700 dark:text-zinc-300 md:text-lg"
-                >
+                <p key={i} className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
                   {p}
                 </p>
               ))}
             </div>
           </section>
 
-          <section id="discipline" aria-labelledby="discipline-heading">
-            <div className="grid gap-6 lg:grid-cols-2 lg:gap-8">
-              <article className="border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-tril-elevated md:p-8">
-                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-zinc-500">
-                  Discipline
+          <section id="discipline" aria-labelledby="discipline-heading" className="scroll-mt-24">
+            <h2
+              id="discipline-heading"
+              className="text-xl font-medium text-zinc-900 dark:text-zinc-100 md:text-2xl"
+            >
+              {copy.narrowTitle}
+            </h2>
+            <div className="mt-4 max-w-2xl space-y-4">
+              {copy.narrowParagraphs.map((p, i) => (
+                <p key={i} className="text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+                  {p}
                 </p>
-                <h2
-                  id="discipline-heading"
-                  className="mt-3 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-3xl"
-                >
-                  {copy.narrowTitle}
-                </h2>
-                <div className="mt-6 space-y-5 text-base leading-relaxed text-zinc-600 dark:text-zinc-400">
-                  {copy.narrowParagraphs.map((p, i) => (
-                    <p key={i}>{p}</p>
-                  ))}
-                </div>
-              </article>
-
-              <article className="border border-zinc-200 bg-white p-6 dark:border-zinc-800 dark:bg-tril-elevated md:p-8">
-                <p className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-zinc-500">
-                  Direction
-                </p>
-                <h2 className="mt-3 text-2xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-100 md:text-3xl">
-                  {copy.meansTitle}
-                </h2>
-                <p className="mt-6 text-base leading-relaxed text-zinc-600 dark:text-zinc-400 md:text-lg">
-                  {copy.meansBody}
-                </p>
-              </article>
+              ))}
             </div>
+            <h3 className="mt-10 text-sm font-medium text-zinc-800 dark:text-zinc-200">
+              {copy.meansTitle}
+            </h3>
+            <p className="mt-2 max-w-2xl text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
+              {copy.meansBody}
+            </p>
           </section>
 
           <footer
             id="references"
             aria-labelledby="references-heading"
-            className="border-t border-zinc-900 pt-12 dark:border-zinc-100 md:pt-16"
+            className="scroll-mt-24 border-t border-zinc-200 pt-12 dark:border-zinc-800 md:pt-14"
           >
-            <p
+            <h2
               id="references-heading"
-              className="font-mono text-[11px] font-medium uppercase tracking-[0.22em] text-zinc-500"
+              className="text-lg font-medium text-zinc-900 dark:text-zinc-100"
             >
               {copy.closingTitle}
-            </p>
-            <p className="mt-4 max-w-2xl text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+            </h2>
+            <p className="mt-3 max-w-2xl text-[15px] leading-relaxed text-zinc-600 dark:text-zinc-400">
               {copy.closingBody}
             </p>
-            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-              <Link
-                to="/"
-                className="inline-flex w-fit items-center justify-center border border-zinc-900 bg-zinc-900 px-5 py-3 font-mono text-xs font-medium uppercase tracking-widest text-white transition-colors hover:bg-zinc-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-800 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-50 dark:border-zinc-100 dark:bg-zinc-100 dark:text-tril-black dark:hover:bg-white dark:focus-visible:ring-zinc-400 dark:focus-visible:ring-offset-tril-black"
-              >
+            <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-[15px]">
+              <Link to="/" className="text-zinc-900 underline decoration-zinc-300 underline-offset-4 dark:text-zinc-100 dark:decoration-zinc-600">
                 {copy.ctaHome}
               </Link>
               <Link
-                to="/#progress"
-                className="inline-flex w-fit items-center justify-center border border-zinc-300 bg-transparent px-5 py-3 font-mono text-xs font-medium uppercase tracking-widest text-zinc-800 transition-colors hover:border-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-800 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-50 dark:border-zinc-600 dark:text-zinc-200 dark:hover:border-zinc-400 dark:focus-visible:ring-zinc-400 dark:focus-visible:ring-offset-tril-black"
+                to="/#state"
+                className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
               >
                 {copy.ctaProgress}
               </Link>
@@ -341,10 +224,9 @@ export function V2Page() {
                 href={copy.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-fit items-center gap-2 border border-zinc-300 bg-transparent px-5 py-3 font-mono text-xs font-medium uppercase tracking-widest text-zinc-800 transition-colors hover:border-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-800 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-50 dark:border-zinc-600 dark:text-zinc-200 dark:hover:border-zinc-400 dark:focus-visible:ring-zinc-400 dark:focus-visible:ring-offset-tril-black"
+                className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
               >
                 {copy.ctaGithub}
-                <ArrowUpRight className="h-3.5 w-3.5 opacity-70" strokeWidth={2} aria-hidden />
               </a>
             </div>
           </footer>

@@ -4,7 +4,7 @@ import { home } from '../content/copy'
 export function CurrentStateSection() {
   const { currentState } = home
   return (
-    <PageSection>
+    <PageSection id="state" className="border-t border-zinc-200/80 dark:border-zinc-800/60">
       <h2 className="text-xl font-medium text-zinc-900 dark:text-zinc-100">{currentState.title}</h2>
       <dl className="mt-6 space-y-2.5 text-[15px] text-zinc-600 dark:text-zinc-400">
         {currentState.items.map((item) => (
