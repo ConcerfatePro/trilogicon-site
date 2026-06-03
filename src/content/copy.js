@@ -5,132 +5,130 @@
 export const brand = {
   name: 'Trilogicon',
   ticker: 'TRIL',
-  tagline: 'Simple. Secure. User-focused.',
-  statusLine: 'V1 & V2 live',
 }
 
 export const social = {
   xUrl: 'https://x.com/trilogicon/',
   xHandle: '@trilogicon',
-  xLabel: 'Follow on X',
 }
 
 export const waitlist = {
-  title: 'Early Trilogicon Waitlist',
+  title: 'Want occasional updates?',
   subtitle:
-    'Share your email if you want occasional, low-noise project updates as work continues beyond V1 and V2. No spam, no token sale language — optional X handle for context only.',
-  emailLabel: 'Email address',
+    'Low-noise notes when testnet tooling, explorer work, or public testing moves forward.',
+  emailLabel: 'Email',
   emailPlaceholder: 'you@example.com',
   xLabel: 'X handle (optional)',
   xPlaceholder: 'trilogicon',
-  helper:
-    'Protected with a bot challenge. We use your email only for occasional project updates. Duplicate requests are handled quietly.',
-  submit: 'Join waitlist',
-  submitting: 'Submitting…',
-  success:
-    'Thank you. Your request has been received.',
-  errorGeneric: 'Something went wrong. Please try again later.',
-  configHint:
-    'This build has no waitlist API URL or Turnstile site key embedded. See instructions below.',
+  submit: 'Join updates',
+  submitting: 'Sending…',
+  success: 'Thanks. You are on the list.',
+  errorGeneric: 'Something went wrong. Try again later.',
+  unavailable: 'Updates are temporarily unavailable.',
 }
 
-export const hero = {
-  headline: 'V2 is live. The node is hardened for real networks.',
-  lead:
-    'Explore what shipped: wire v2 sessions, explicit sync, decode-before-apply messaging, safer persistence, genesis-bound data dirs, and stronger multi-node tests — built on the same simple V1 chain.',
-  secondary:
-    'TRIL is the native asset on an independent base layer — not a token on another network. Simple. Secure. User-focused.',
-  ctaExploreV2: 'Explore V2',
-  ctaVision: 'Read the vision',
-  ctaV1: 'Explore V1',
-  ctaSource: 'View source',
-  ctaRoadmap: 'View roadmap',
-}
+export const sourceUrl = 'https://github.com/ConcerfatePro/trilogicon-core'
+export const docsHref = '/v2'
 
-export const whatIs = {
-  title: 'What Trilogicon is',
-  intro:
-    'Trilogicon is a long-term, multi-version blockchain project. The aim is reliable digital value transfer: trustworthy signatures, deterministic state, and rules users and operators can understand.',
-  bullets: [
+export const home = {
+  hero: {
+    title: 'Trilogicon',
+    subheading: 'A minimal blockchain built in Rust.',
+    ctaDocs: 'Read the docs',
+    ctaSource: 'View source',
+  },
+  whatIs: {
+    title: 'What is Trilogicon?',
+    body:
+      'Trilogicon is an account-based blockchain for signed value transfer. It uses accounts, balances, nonces, blocks, and deterministic validation so nodes can replay the chain from the same genesis.',
+  },
+  currentState: {
+    title: 'Current state',
+    items: [
+      { label: 'V1', detail: 'protocol core complete' },
+      { label: 'V2', detail: 'node hardening complete' },
+      { label: 'Next', detail: 'testnet tooling and stronger network behavior' },
+    ],
+  },
+  baseLayer: {
+    title: 'Built from the base layer',
+    body:
+      'The project is starting with the parts a chain cannot fake: signed transactions, replay protection, block validation, persistence, and sync. More can come later. The base layer has to be understandable first.',
+  },
+  next: {
+    title: 'What comes next?',
+    body:
+      'Next work is focused on branch selection, block indexing, reorg checks, replay testing, faucet tooling, and an explorer. Wallet work comes later.',
+  },
+  tril: {
+    title: 'TRIL',
+    body: 'TRIL is the native unit of Trilogicon.',
+    optional: 'No token sale language. No meme branding.',
+  },
+  faq: [
     {
-      title: 'Native blockchain',
-      body: 'Base-layer network with its own asset (TRIL), not a wrapped token on Ethereum, Solana, or elsewhere.',
+      question: 'Is Trilogicon live?',
+      answer:
+        'Not as a public production network yet. V1 and V2 are complete for their scope, and testnet tooling is still being worked on.',
     },
     {
-      title: 'Account-based ledger',
-      body: 'Each account holds a balance and a nonce. The model is chosen for clarity and clean extension in later versions.',
+      question: 'What is TRIL?',
+      answer: 'TRIL is the native unit of Trilogicon.',
     },
     {
-      title: 'Secure value transfer',
-      body: 'Signed transactions, verification, replay protection via nonces, and validation before state changes.',
+      question: 'Why Rust?',
+      answer:
+        'Rust is a good fit for state, signatures, blocks, networking, and persistence.',
     },
     {
-      title: 'Built from scratch',
-      body: 'Protocol direction, architecture, and implementation are original engineering — not a rebranded fork.',
-    },
-  ],
-  closing:
-    'The project prioritizes auditability and predictable behavior over trend-chasing and unnecessary complexity. Simple. Secure. User-focused.',
-}
-
-export const whyExists = {
-  title: 'Why it exists',
-  problemTitle: 'The problem',
-  problem:
-    'Many crypto systems are hard to understand, overloaded with features, or driven by short-term narrative. When users cannot map how a network behaves, trust and long-term usefulness suffer.',
-  responseTitle: 'The response',
-  response:
-    'Trilogicon is being designed to prioritize understandable protocol rules, predictable system behavior, secure ownership, clean architecture, and practical utility over time — without pretending the hard parts are already solved.',
-}
-
-export const principles = {
-  title: 'Core principles',
-  items: [
-    {
-      key: 'simplicity',
-      title: 'Simplicity',
-      body: 'Each release stays as small as the work allows. Fewer moving parts mean fewer places for subtle failure.',
+      question: 'Is this a token sale?',
+      answer: 'No.',
     },
     {
-      key: 'security',
-      title: 'Security',
-      body: 'Strong signatures, strict validation, deterministic transitions, and explicit rejection of invalid transactions and blocks.',
-    },
-    {
-      key: 'reliability',
-      title: 'Reliability',
-      body: 'Behavior you can depend on: consistent sync, clear rules, and node software aimed at correct execution.',
-    },
-    {
-      key: 'clarity',
-      title: 'Clarity',
-      body: 'Documentation and protocol choices favor what operators and users can read, test, and audit.',
-    },
-    {
-      key: 'longterm',
-      title: 'Long-term usefulness',
-      body: 'Engineering and roadmap favor durable foundations over launch-day spectacle.',
+      question: 'Where is the code?',
+      answer: null,
+      linkLabel: 'GitHub',
+      linkHref: sourceUrl,
     },
   ],
 }
 
-export const builder = {
-  title: 'From the builder',
-  kicker: 'Personal note',
+export const nav = {
+  links: [
+    { label: 'Docs', href: docsHref },
+    { label: 'Source', href: sourceUrl, external: true },
+    { label: 'Updates', href: '/#updates' },
+  ],
+}
+
+export const footer = {
+  note: `${brand.name} · ${brand.ticker}`,
+  links: [
+    { label: 'Docs', href: docsHref },
+    { label: 'Source', href: sourceUrl, external: true },
+    { label: 'Updates', href: '/#updates' },
+  ],
+}
+
+/** Legacy / other pages — keep v2, support, source blocks for /v2 and /support routes */
+export const source = {
+  kicker: 'Open source',
+  title: 'Public repositories',
   paragraphs: [
-    'I am building Trilogicon as a long-term protocol effort: a native chain with clear rules, careful validation, and software that can be reasoned about — not another rebranded stack or hype-driven roadmap.',
-    'V1 is intentionally narrow. I would rather establish correct fundamentals — signatures, state, blocks, sync — than layer on features that make the system harder to audit or trust.',
-    'V1 is intentionally narrow: the goal is a small, auditable surface area you can read in the public repositories. Later versions can build on that only if the base stays understandable and secure. If that discipline resonates, you are exactly the kind of reader this project is for.',
+    'The repositories are public for anyone who wants to inspect the code and follow development.',
   ],
-  signOff: 'Trilogicon Dev',
-  signRole: 'Project lead',
+  coreLabel: 'Core implementation',
+  coreDescription:
+    'Protocol rules, validation, and node software — start here if you want to read or run the implementation.',
+  coreUrl: 'https://github.com/ConcerfatePro/trilogicon-core',
+  coreLinkLabel: 'trilogicon-core on GitHub',
 }
 
 export const v1 = {
   title: 'Trilogicon V1',
   subtitle: 'Released. Fundamentals first — V2 hardens the node around this core.',
   intro:
-    'The first release delivers a simple, secure digital value-transfer network: signed transfers, balance tracking, nonce-based replay protection, block validation, and multi-node synchronization. It does a small set of things deliberately well; V2 then improved how that chain behaves under real distributed conditions without widening the protocol.',
+    'The first release delivers a simple, secure digital value-transfer network: signed transfers, balance tracking, nonce-based replay protection, block validation, and multi-node synchronization.',
   includesTitle: 'In V1',
   includes: [
     'Account creation',
@@ -157,126 +155,10 @@ export const v1 = {
     'Bloated ecosystem layers',
   ],
   scopeNote:
-    'Limited scope is a strength: disciplined protocol design before optional complexity. Built as a simple, secure, and understandable foundation first.',
+    'Limited scope is a strength: disciplined protocol design before optional complexity.',
 }
 
-export const source = {
-  kicker: 'Open source',
-  title: 'Public repositories',
-  paragraphs: [
-    'The repositories are public for anyone who wants to inspect the code and follow development.',
-  ],
-  coreLabel: 'Core implementation',
-  coreDescription:
-    'Protocol rules, validation, and node software — start here if you want to read or run the implementation.',
-  coreUrl: 'https://github.com/ConcerfatePro/trilogicon-core',
-  coreLinkLabel: 'trilogicon-core on GitHub',
-}
-
-export const architecture = {
-  title: 'System overview',
-  subtitle:
-    'High-level structure of the node and protocol — not a full specification. V2 strengthened networking, sync, and persistence layers while keeping the core chain rules narrow.',
-  modules: [
-    {
-      id: 'account',
-      title: 'Account',
-      body: 'Identity in the ledger: balance and nonce; the basis for transfers and replay rules.',
-    },
-    {
-      id: 'transaction',
-      title: 'Transaction',
-      body: 'Sender, receiver, amount, fee, nonce, time, signature — verified before acceptance.',
-    },
-    {
-      id: 'signature',
-      title: 'Signature',
-      body: 'Cryptographic proof tying intent to keys; core to secure ownership.',
-    },
-    {
-      id: 'block',
-      title: 'Block',
-      body: 'Height, previous hash, timestamp, transactions, producer data, proof field as consensus matures, block hash.',
-    },
-    {
-      id: 'state',
-      title: 'State',
-      body: 'Deterministic application of valid blocks to account sets; strict validation at each step.',
-    },
-    {
-      id: 'consensus',
-      title: 'Consensus',
-      body: 'Agreement on the canonical chain. V2 kept consensus rules stable while hardening how nodes exchange and apply data around those rules.',
-    },
-    {
-      id: 'sync',
-      title: 'Node sync',
-      body: 'Peers exchange blocks and headers so independent nodes converge on consistent history.',
-    },
-  ],
-  rustNote:
-    'Core implementation targets Rust for safety, performance, and maintainability. Illustrative module names include wallet, transaction, block, blockchain, state, crypto, network, consensus, and config.',
-}
-
-export const status = {
-  title: 'Project status',
-  subtitle: 'V1 and V2 are complete in source. Later versions follow the same discipline.',
-  items: [
-    {
-      title: 'V1 release',
-      body: 'Shipped: secure value transfer, validation, and multi-node sync — a deliberately small protocol surface so behavior stays traceable.',
-    },
-    {
-      title: 'V2 release',
-      body: 'Shipped: node reliability work — wire v2 sessions, explicit catch-up sync, decode-before-apply messaging, defensive frame and batch limits, safer block and pending-transaction persistence, genesis binding per data directory, mempool resilience, clearer separation of consensus rules from local-node hardening, and stronger distributed tests.',
-    },
-    {
-      title: 'Specification & documentation',
-      body: 'Evolving — written material and code comments grow as operators need clearer reference. The repositories remain authoritative.',
-    },
-    {
-      title: 'Roadmap',
-      body: 'V3 and beyond are defined at a high level — consensus, performance, and decentralized operation only after the hardened core is trusted.',
-    },
-    {
-      title: 'Transparency',
-      body: 'No public sale narrative and no fabricated metrics on this page. Inspect the repositories for what is actually implemented.',
-    },
-  ],
-  disclaimer:
-    'This site summarizes intent and scope; authoritative detail is in the public code and any published specs. Always verify behavior against the implementation you run.',
-}
-
-export const roadmap = {
-  title: 'Version roadmap',
-  subtitle: 'Disciplined evolution — not rushed expansion.',
-  versions: [
-    {
-      id: 'V1',
-      title: 'V1',
-      body: 'Shipped: simple, secure value transfer; accounts; signed transfers; validation; nonce-based replay protection; multi-node synchronization.',
-    },
-    {
-      id: 'V2',
-      title: 'V2',
-      body: 'Shipped: wire session discipline, explicit sync, hardened parsing and limits, safer on-disk chain and pending tx storage, genesis binding to data dirs, mempool recovery, consensus/local separation, and stronger multi-node tests — without protocol sprawl.',
-      href: '/v2',
-      cta: 'What V2 shipped',
-    },
-    {
-      id: 'V3',
-      title: 'V3',
-      body: 'Stronger consensus / validator model, performance work, and more robust decentralized operation.',
-    },
-    {
-      id: 'V4+',
-      title: 'V4+',
-      body: 'Only after the core is genuinely strong — possible tooling, programmability, or extensions if justified and if the base stays understandable and secure.',
-    },
-  ],
-}
-
-/** /v2 — V2 shipped; light-themed engineering retrospective */
+/** /v2 — V2 shipped; engineering retrospective */
 export const v2Page = {
   docTitle: 'Trilogicon V2 — shipped',
   heroKicker: 'Release notes · engineering',
@@ -285,7 +167,7 @@ export const v2Page = {
   heroLead:
     'V2 is complete. It hardens the node around the working V1 chain: wire discipline, explicit synchronization, safer persistence, and stronger proof under multi-node conditions.',
   heroSub:
-    'Trilogicon remains Simple. Secure. User-focused. — a native base layer, not a feature platform. V2 did not expand the asset model; it made distributed operation more trustworthy.',
+    'Trilogicon remains a native base layer, not a feature platform. V2 did not expand the asset model; it made distributed operation more trustworthy.',
   summaryCards: [
     {
       label: 'V1',
@@ -298,9 +180,9 @@ export const v2Page = {
       body: 'Wrong peers, wrong genesis, malformed traffic, restarts, partial writes, pending-transaction recovery, delayed sync, and honest multi-node convergence — addressed with engineering evidence, not narrative.',
     },
     {
-      label: 'Motto',
-      title: 'Simple. Secure. User-focused.',
-      body: 'Every version is judged against understandable rules, dependable behavior, and respect for operators and users — not hype or scope creep.',
+      label: 'Scope',
+      title: 'Narrow on purpose',
+      body: 'Understandable rules, dependable behavior, and respect for operators — not hype or scope creep.',
     },
   ],
   anchorNav: [
@@ -580,22 +462,22 @@ export const v2Page = {
   ],
   meansTitle: 'What this means for Trilogicon',
   meansBody:
-    'The project remains a native base-layer chain for understandable value transfer. Credibility comes from how the node behaves under stress — Simple. Secure. User-focused. — not from an expanding feature brochure.',
+    'The project remains a native base-layer chain for understandable value transfer. Credibility comes from how the node behaves under stress — not from an expanding feature brochure.',
   closingTitle: 'References',
   closingBody:
     'Authoritative detail lives in the public repositories. This page describes what V2 delivered; the code is the contract.',
   ctaHome: 'Home',
-  ctaRoadmap: 'Version roadmap',
+  ctaProgress: 'Progress',
   ctaGithub: 'Core repository',
   githubUrl: 'https://github.com/ConcerfatePro/trilogicon-core',
 }
 
-/** /support — voluntary development support; not investment or token sale language */
+/** /support */
 export const supportPage = {
   kicker: 'Trilogicon · TRIL',
   title: 'Support Trilogicon',
   intro:
-    'Trilogicon is being built as a long-term engineering project focused on simple, secure, and understandable digital value transfer. For those who want to support development, optional contributions can help with infrastructure, testing, documentation, and related project costs.',
+    'Trilogicon is a long-term engineering project focused on simple, understandable digital value transfer. Optional contributions can help with infrastructure, testing, documentation, and related project costs.',
   whatHelpsTitle: 'What support helps with',
   whatHelpsItems: [
     'Website and infrastructure costs',
@@ -616,43 +498,4 @@ export const supportPage = {
     'Support is entirely optional and does not provide ownership, governance rights, investment returns, or special financial status in the project. Contributions are simply a voluntary way to support Trilogicon’s continued development.',
   thankYouTitle: 'Thank you',
   thankYouBody: 'Thank you to everyone following and supporting the project in good faith.',
-}
-
-export const footer = {
-  note: `${brand.name} · ${brand.ticker} · ${brand.statusLine.toLowerCase()}`,
-  links: [
-    { label: 'Vision', href: '/#vision' },
-    { label: 'Builder', href: '/#builder' },
-    { label: 'V1 scope', href: '/#v1' },
-    { label: 'V2', href: '/v2' },
-    { label: 'Source', href: '/#source' },
-    { label: 'Architecture', href: '/#architecture' },
-    { label: 'Roadmap', href: '/#roadmap' },
-    { label: 'Status', href: '/#status' },
-    { label: 'Waitlist', href: '/#waitlist' },
-    { label: 'FAQ', href: '/faq' },
-    { label: 'Support', href: '/support' },
-    { label: 'Contact', href: '/faq#contact' },
-    {
-      label: 'GitHub',
-      href: 'https://github.com/ConcerfatePro/trilogicon-core',
-      external: true,
-    },
-  ],
-}
-
-export const nav = {
-  links: [
-    { label: 'Vision', href: '/#vision' },
-    { label: 'Builder', href: '/#builder' },
-    { label: 'V1', href: '/#v1' },
-    { label: 'V2', href: '/v2' },
-    { label: 'Source', href: '/#source' },
-    { label: 'Architecture', href: '/#architecture' },
-    { label: 'Roadmap', href: '/#roadmap' },
-    { label: 'Status', href: '/#status' },
-    { label: 'Waitlist', href: '/#waitlist' },
-    { label: 'Support', href: '/support' },
-    { label: 'FAQ', href: '/faq' },
-  ],
 }

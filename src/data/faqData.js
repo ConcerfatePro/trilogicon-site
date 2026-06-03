@@ -1,6 +1,5 @@
 /**
  * FAQ content — edit questions and answers here.
- * Categories can be extended by adding objects to `faqCategories`.
  */
 
 export const faqCategories = [
@@ -9,198 +8,63 @@ export const faqCategories = [
     title: 'General',
     items: [
       {
-        id: 'gen-what',
-        question: 'What is Trilogicon?',
+        id: 'gen-live',
+        question: 'Is Trilogicon live?',
         answer:
-          'Trilogicon is a simple, secure, user-focused base-layer blockchain project: its own native asset (TRIL), protocol rules, and node software — not a token on another chain. The public motto is Simple. Secure. User-focused. The emphasis is clear rules and dependable value transfer over feature overload or hype-driven design.',
+          'Not as a public production network. V1 and V2 are complete for their scope, but public testnet tooling is still being worked on.',
       },
       {
         id: 'gen-tril',
-        question: 'What does TRIL represent?',
-        answer:
-          'TRIL is the ticker symbol for Trilogicon’s native asset. It represents the unit used for value transfer and network-level fees within the protocol.',
+        question: 'What is TRIL?',
+        answer: 'TRIL is the native unit of Trilogicon.',
       },
       {
-        id: 'gen-goal',
-        question: 'What is the main goal of Trilogicon?',
+        id: 'gen-rust',
+        question: 'Why Rust?',
         answer:
-          'The goal is to build a clear, reliable, and genuinely useful digital value-transfer network. Success is measured by sound protocol behavior, security, and long-term practicality rather than short-term attention or unnecessary complexity.',
+          'Rust fits the kind of project this is: state, signatures, blocks, networking, persistence, and a lot of places where careless code becomes expensive later.',
       },
       {
-        id: 'gen-why',
-        question: 'Why is Trilogicon being built?',
+        id: 'gen-run',
+        question: 'Can I run it?',
         answer:
-          'Trilogicon is being built with a user-focused goal in mind: trustworthy transfers, understandable rules, secure ownership, predictable network behavior, and long-term usefulness. Rather than prioritizing narrative or rapid feature expansion, the project focuses on building a foundation that people can understand and rely on.',
+          'Check the core repository and any README or operator notes there. Public run instructions are still being cleaned up as testnet tooling matures.',
       },
       {
-        id: 'gen-user-focused',
-        question: 'What is meant by a “user-focused” network?',
+        id: 'gen-sale',
+        question: 'Is this a token sale?',
+        answer: 'No.',
+      },
+      {
+        id: 'gen-different',
+        question: 'What makes it different?',
         answer:
-          'It means design decisions prioritize clarity, safety, and predictable outcomes for the people using the network. Trust should come from understandable rules, strong validation, and dependable behavior rather than marketing language or unnecessary complexity.',
+          'The base layer is kept narrow: signed transfers, deterministic validation, and node behavior you can reason about without a feature brochure.',
       },
     ],
   },
   {
-    id: 'v1',
-    title: 'V1 release',
+    id: 'community',
+    title: 'Contact',
     items: [
       {
-        id: 'v1-focus',
-        question: 'What is the primary focus of Trilogicon V1?',
+        id: 'com-updates',
+        question: 'Where can updates be followed?',
         answer:
-          'V1 is focused on the core foundation: account creation, balances, sending and receiving TRIL, signature verification, replay protection through nonces, transaction and block validation, blockchain validation, and synchronization across nodes. The objective is to build a minimal and correct value-transfer network before expanding scope.',
+          'X: https://x.com/trilogicon/\nCore source: https://github.com/ConcerfatePro/trilogicon-core',
       },
       {
-        id: 'v1-experimental',
-        question: 'Is Trilogicon still experimental?',
+        id: 'com-questions',
+        question: 'Where should questions be sent?',
         answer:
-          'V1 and V2 are complete in public source: a narrow chain core plus a major node hardening pass. The project remains long-term in outlook — documentation, later versions, and how you operate a network still deserve careful judgment. “Experimental” can still apply to deployment context; always verify behavior against the code you run.',
-      },
-      {
-        id: 'v1-live',
-        question: 'Is Trilogicon V1 live?',
-        answer:
-          'Yes. Trilogicon v1 is finished and available in the public repositories: a minimal value-transfer core with signed transactions, balances and nonces, block validation, and multi-node synchronization. This is not marketing hype — inspect the implementation for authoritative detail. Operational “mainnet” claims are left to honest deployment language, not this site.',
-      },
-      {
-        id: 'v1-excluded',
-        question: 'What features are intentionally excluded from V1?',
-        answer:
-          'V1 does not include smart contracts, DeFi, governance systems, bridges, advanced staking, privacy features, or additional token types beyond the core network design. These areas introduce additional complexity and audit surface, so they are deferred until the base layer is sound.',
-      },
-      {
-        id: 'v1-adopters',
-        question: 'Are early adopters being brought in now, or later?',
-        answer:
-          'Anyone can read and run the public code. The priority remains correctness and clarity: consistent validation, reliable state transitions, and dependable node behavior. Broader visibility can grow gradually as documentation and operational guidance mature.',
-      },
-      {
-        id: 'v1-minimal',
-        question: 'Why keep V1 intentionally minimal?',
-        answer:
-          'A narrow first version reduces the number of interacting failure modes and makes validation easier to reason about. Establishing correct transfers, block behavior, and synchronization first creates a stronger foundation for later versions.',
-      },
-      {
-        id: 'v1-simplicity',
-        question: 'Why is simplicity important in early protocol design?',
-        answer:
-          'Complexity compounds quickly. Each additional subsystem increases the number of ways consensus, state, and networking can fail or diverge. Keeping the early design simple improves auditability, implementation confidence, and long-term maintainability.',
+          'Email: contact@trilogicon.com\nX: https://x.com/trilogicon/',
       },
     ],
   },
-  {
-    id: 'v2',
-    title: 'V2 release',
-    items: [
-      {
-        id: 'v2-shipped',
-        question: 'What did Trilogicon V2 deliver?',
-        answer:
-          'V2 is a completed reliability phase for node software: formal wire v2 peer sessions (version, genesis commitment, advisory height), explicit linear catch-up sync with capped batches, decode-before-apply message handling, frame and response size limits, stronger on-disk block and pending-transaction persistence with fail-closed behavior, genesis binding per data directory, more resilient mempool handling, clearer separation between consensus rules and local hardening, and substantially stronger multi-node and recovery-oriented tests. A structured summary is on the site at /v2.',
-      },
-      {
-        id: 'v2-not',
-        question: 'What did V2 intentionally avoid?',
-        answer:
-          'V2 did not add smart contracts, staking redesign, DeFi, bridges, new token standards, privacy features, or a major consensus overhaul. It strengthened how nodes run together — it did not turn Trilogicon into a broader application platform.',
-      },
-      {
-        id: 'v2-motto',
-        question: 'How does V2 relate to the project motto?',
-        answer:
-          'The public motto is Simple. Secure. User-focused. V2 advances that by making distributed behavior more predictable and safer under real conditions — without expanding protocol scope for marketing reasons.',
-      },
-    ],
-  },
-  {
-    id: 'technical',
-    title: 'Technical',
-    items: [
-      {
-        id: 'tech-chain',
-        question: 'Is Trilogicon its own blockchain?',
-        answer:
-          'Yes. Trilogicon is intended to be its own base-layer blockchain rather than a token issued on another network. It defines its own blocks, validation rules, and native asset within the protocol.',
-      },
-      {
-        id: 'tech-account',
-        question: 'Is Trilogicon account-based or UTXO-based?',
-        answer:
-          'Trilogicon uses an account-based ledger model. Each account maintains state such as a balance and nonce, which supports simpler reasoning around authorization ordering and replay protection for the project’s goals.',
-      },
-      {
-        id: 'tech-smart-contracts',
-        question: 'Will Trilogicon include smart contracts?',
-        answer:
-          'Smart contracts are not part of V1. The shipped first release is a simple and secure transfer network with strict validation rules. More advanced programmability would only be considered later if the base layer is strong enough to support it responsibly.',
-      },
-      {
-        id: 'tech-meme-token',
-        question: 'Will there be a meme token or additional token alongside the network?',
-        answer:
-          'No additional token is planned for V1. The focus is on the core network and its native asset rather than parallel token experiments that distract from protocol correctness and security.',
-      },
-      {
-        id: 'tech-user-focused',
-        question: 'What makes Trilogicon user-focused in technical terms?',
-        answer:
-          'The design emphasizes clarity of rules, strong ownership verification, replay protection, deterministic state transitions, and predictable node behavior. The goal is to make the system easier to understand, safer to use, and more dependable over time.',
-      },
-      {
-        id: 'tech-problem',
-        question: 'What problem is Trilogicon trying to solve?',
-        answer:
-          'Many cryptocurrency systems become difficult to understand, overly extended with features, or driven by short-term incentives. Trilogicon focuses on a smaller and more disciplined objective first: reliable digital value transfer with understandable infrastructure and dependable operation.',
-      },
-      {
-        id: 'tech-rust',
-        question: 'What role does Rust play in the project?',
-        answer:
-          'Rust is the intended language for the core node implementation. It was chosen for memory safety, performance, and maintainability in systems programming, with the goal of building reference software that matches the protocol’s security expectations.',
-      },
-      {
-        id: 'tech-evolve',
-        question: 'How does the project evolve across versions?',
-        answer:
-          'V1 established the value-transfer core. V2 shipped the locked reliability work: networking, sync, persistence, and testing under multi-node conditions. Later versions (for example V3) may address consensus, performance, and more robust decentralized operation — only when justified and without sacrificing clarity. Broader features would be considered cautiously after the base is genuinely strong.',
-      },
-      {
-        id: 'tech-longterm',
-        question: 'Is Trilogicon designed for long-term development?',
-        answer:
-          'Yes. Trilogicon is being approached as a multi-version project focused on disciplined, long-term evolution rather than a one-time release. Maintainability, clarity, and long-term usefulness are core goals.',
-      },
-    ],
-  },
-  {
-	  id: 'community',
-	  title: 'Community / Contact',
-	  items: [
-		{
-		  id: 'com-updates',
-		  question: 'Where can updates be followed?',
-		  answer:
-			'Updates are shared through the project’s public channels as work continues.\n\nX: https://x.com/trilogicon/\nCore source: https://github.com/ConcerfatePro/trilogicon-core',
-		},
-		{
-		  id: 'com-questions',
-		  question: 'Where should questions be sent?',
-		  answer:
-			'For direct inquiries, you can reach out via email or through the contact section on this page.\n\nEmail: contact@trilogicon.com\nX: https://x.com/trilogicon/\n\nCommon topics may be added to this FAQ over time as the project and its documentation continue to grow.',
-		},
-		{
-		  id: 'com-docs',
-		  question: 'Will documentation or this FAQ expand later?',
-		  answer:
-			'Yes. As the protocol and implementation mature, additional documentation and FAQ coverage will be added. Early pages are focused on clarity, structure, and honest communication.',
-		},
-	  ],
-	}
 ]
 
 export const contactSectionContent = {
   title: 'Still have a question?',
-  description:
-    'If your question is not covered here, you can reach out directly.\n\nEmail: contact@trilogicon.com\nX: https://x.com/trilogicon/\n\nAs the project develops, more structured communication and documentation will be added.',
-  note: 'Common questions may be incorporated into this page over time as the project evolves.',
+  description: 'Email: contact@trilogicon.com\nX: https://x.com/trilogicon/',
+  note: '',
 }

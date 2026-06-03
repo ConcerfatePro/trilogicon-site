@@ -332,10 +332,10 @@ export function V2Page() {
                 {copy.ctaHome}
               </Link>
               <Link
-                to="/#roadmap"
+                to="/#progress"
                 className="inline-flex w-fit items-center justify-center border border-zinc-300 bg-transparent px-5 py-3 font-mono text-xs font-medium uppercase tracking-widest text-zinc-800 transition-colors hover:border-zinc-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-800 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-50 dark:border-zinc-600 dark:text-zinc-200 dark:hover:border-zinc-400 dark:focus-visible:ring-zinc-400 dark:focus-visible:ring-offset-tril-black"
               >
-                {copy.ctaRoadmap}
+                {copy.ctaProgress}
               </Link>
               <a
                 href={copy.githubUrl}
